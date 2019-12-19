@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.entity.Echeck" table="echeck">
+		<id name="echeckid" column="echeckid">
+			<generator class="native"></generator>
+		</id>
+	
+		<property name="btime" column="btime"/>
+		<property name="eid" column="eid"/>
+		<property name="etime" column="etime"/>
+		<property name="state" column="state" length="2"/>
+		
+
+	</class>
+</hibernate-mapping>
