@@ -2,10 +2,13 @@ package com.service.impl;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.dao.AleaveDao;
 import com.entity.Aleave;
 import com.service.AleaveService;
 
+@Transactional
 public class AleaveServiceImpl implements AleaveService {
 	private AleaveDao aleaveDao;
 	

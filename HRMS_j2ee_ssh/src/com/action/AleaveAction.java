@@ -17,7 +17,19 @@ public class AleaveAction extends ActionSupport implements ModelDriven<Aleave> {
 	private static final long serialVersionUID = 1L;
 	
 	private Aleave aleave=new Aleave();
+	
+	
 	private AleaveService aleaveService;
+	
+	
+
+	public AleaveService getAleaveService() {
+		return aleaveService;
+	}
+
+	public void setAleaveService(AleaveService aleaveService) {
+		this.aleaveService = aleaveService;
+	}
 
 	@Override
 	public Aleave getModel() {
