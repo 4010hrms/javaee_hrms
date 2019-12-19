@@ -54,6 +54,27 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 	 * 员工登陆
 	 * @return
 	 */
+	public String plogin(){
+		System.out.println("action.login方法执行");
+		// 调用业务层方法
+		Employee existEmployee = employeeService.login(employee);
+		if(existEmployee==null){
+			// 登陆失败
+			this.addActionError("用户名或密码错误！");
+			System.out.println("action查找失败");
+			return "pINPUT";
+		}else{
+			// 登录成功
+			System.out.println("Action查找成功");
+			ActionContext.getContext().getSession().put("existEmployee", existEmployee);
+			return "pSUCCESS";
+		}
+	}
+	
+	/**
+	 * 员工登陆
+	 * @return
+	 */
 	public String login(){
 		System.out.println("action.login方法执行");
 		// 调用业务层方法
