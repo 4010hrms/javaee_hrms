@@ -49,7 +49,7 @@
 				<div align="center">
 					<table border="0" width="900px">
 						<tr>
-							<td align="center" style="font-size: 24px; color: #666">员工修改</td>
+							<td align="center" style="font-size: 24px; color: #666">薪资修改</td>
 						</tr>
 						<tr>
 							<td><span style="color: red"><s:actionerror /></span></td>
@@ -58,37 +58,19 @@
 					</table>
 					<br /> <br />
 					<!-- action对应一个action标签，id对应提交时的对应关系 -->
-					<s:form id="saveForm" action="echeck_edit" method="post" namespace="/" theme="simple">
-		<s:hidden name="echeckid" value="%{model.echeckid}"></s:hidden>
-		<table style="font-size: :16px">
-			<tr>
-				<td align="right">员工编号：</td>
-				<td><s:textfield value="%{model.eid}" name="eid" /></td>
-			</tr>
-			<tr>
-				<td align="right">上班时间：</td>
-				<td> <s:textfield name="btime" label="btime" >
-			<s:param name="value">
-				<s:date name="%{model.btime}" format="yyyy-MM-dd HH:mm:ss" />
-			</s:param>
-		</s:textfield></td>
-		</tr>
-           <tr>
-				<td align="right">下班时间：</td>
-				<td> <s:textfield name="etime" label="etime" >
-			<s:param name="value">
-				<s:date name="%{model.etime}" format="yyyy-MM-dd HH:mm:ss" />
-			</s:param>
-			</s:textfield></td>
-			
-			</tr>
-			<tr>
-			<td align="right">状态：</td>
-				<td><s:radio list="{'正常','早退','缺勤'}" value="%{model.state}" name="state" /></td>
-			</tr>
-			
-		</table>
-	</s:form>
+					<s:form id="saveForm" action="salary_edit" method="post" namespace="/" theme="simple">
+						<s:hidden name="eid" value="%{model.eid}"></s:hidden>
+						<s:hidden name="ename" value="%{model.ename}"></s:hidden>
+						<s:hidden name="esex" value="%{model.esex}"></s:hidden>
+						<s:hidden name="eage" value="%{model.eage}"></s:hidden>
+						<table style="font-size: :16px">
+							<tr>
+								<td align="right">员工薪资：</td>
+								<td><s:textfield value="%{model.esalary}" name="esalary" /></td>
+								
+							</tr>
+						</table>
+					</s:form>
 					<table border="0" width="900px">
 						<tr>
 							<td align="right"><a
@@ -116,7 +98,7 @@
 						<li><a href="employee_findAll.action">员工管理 </a></li>
 						<li><a href="echeck_findAll.action">考勤管理</a></li>
 						<li><a href="aleave_findAll.action">假条管理</a></li>
-						<li><a href="employee_findAll.action">工薪管理</a></li>
+						<li><a href="salary_findAll.action">工薪管理</a></li>
 						<li><a href="employee_findAll.action">任务管理</a></li>
 						<li><a href="employee_outlog.action">退出登录</a></li>
 					</ul>

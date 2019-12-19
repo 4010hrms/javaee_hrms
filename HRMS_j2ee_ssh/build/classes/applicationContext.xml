@@ -70,6 +70,7 @@
 	<bean id="salaryService" class="com.service.impl.SalaryServiceImpl">
 		<property name="salaryDao" ref="salaryDao"></property>
 	</bean> 
+	
 	<!-- 配置dao -->
 	<bean id="employeeDao" class="com.dao.impl.EmployeeDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
@@ -80,6 +81,7 @@
     <bean id="departmentDao" class="com.dao.impl.DepartmentDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+
 	<!-- 配置事务管理器 -->
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">

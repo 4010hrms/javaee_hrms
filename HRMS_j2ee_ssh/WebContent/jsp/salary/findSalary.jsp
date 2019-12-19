@@ -1,16 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
-<%@taglib uri="/struts-dojo-tags" prefix="sx" %>
+<%@taglib uri="/struts-dojo-tags" prefix="sx"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%
-	java.util.HashMap map = new java.util.LinkedHashMap();
-	request.setAttribute("default", 1);
-%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang=en>
 <head>
@@ -18,8 +15,7 @@
 <title>人事考勤</title>
 <link href="${pageContext.request.contextPath }/css/style.css"
 	rel="stylesheet" type="text/css" media="screen" />
-<link href="${pageContext.request.contextPath }/css/main.css"
-	rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/css/main.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -49,39 +45,34 @@
 				<div align="center">
 					<table border="0" width="900px">
 						<tr>
-							<td align="center" style="font-size: 24px; color: #666">考勤添加</td>
-						</tr>
-						<tr>
-							<td><span style="color: red"><s:actionerror /></span></td>
-
+							<td align="center" style="font-size: 24px; color: #666">薪资查询</td>
 						</tr>
 					</table>
-					<!-- action对应一个action标签，id对应提交时的对应关系 -->
-					<s:form id="saveForm" action="echeck_saveecheck" method="post" namespace="/" theme="simple">
-		<table border="0" width="900px">
-			<tr>
-				<td width="30%" align="right">员工编号</td>
-				<td><s:textfield name="eid" /></td>
-			</tr>
-			
-			<tr>
-				<td align="right">上班时间：</td>
-				<td><s:textfield value="2019-01-01 01:00:00" name="btime" /></td>
-			</tr>
-			<tr>
-				<td align="right">下班时间：</td>
-				<td><s:textfield  value="2019-01-01 01:00:00" name="etime" /></td>
-			</tr>
-		</table>
-	</s:form>
+					<br />
 					<table border="0" width="900px">
-						<tr>
-							<td align="right"><a
-								href="javascript:document.getElementById('saveForm').submit()">保存</a>
-								&nbsp;&nbsp; <a href="javascript:history.go(-1)">退回 </a></td>
-						</tr>
+						<thead>
+							<tr>
+								<th>员工编号</th>
+								<th>员工姓名</th>
+								<th>员工性别</th>
+								<th>员工年龄</th>
+								<th>员工薪资</th>
+							</tr>
+						</thead>
+						<tbody>
+							<s:iterator value="list" var="e">
+								<tr>
+									<td align="center"><s:property value="#e.eid" /></td>
+									<td align="center"><s:property value="#e.ename" /></td>
+									<td align="center"><s:property value="#e.esex" /></td>
+									<td align="center"><s:property value="#e.eage"/></td>
+									<td align="center"><s:property value="#e.esalary"/></td>
+								</tr>
+							</s:iterator>
+						</tbody>
 					</table>
-
+					<br />
+					
 				</div>
 				<s:if test="#session.existEmployee==null">
 					<form action="employee_outlog" method="get" name="myform"></form>
@@ -89,9 +80,7 @@
 						document.myform.submit();
 					</script>
 				</s:if>
-			</div>
-
-
+			  </div>
 		</div>
 		<div id="sidebar">
 			<ul>
@@ -102,7 +91,7 @@
 						<li><a href="employee_findAll.action">员工管理 </a></li>
 						<li><a href="echeck_findAll.action">考勤管理</a></li>
 						<li><a href="aleave_findAll.action">假条管理</a></li>
-						<li><a href="employee_findAll.action">工薪管理</a></li>
+						<li><a href="salary_findAll.action">工薪管理</a></li>
 						<li><a href="employee_findAll.action">任务管理</a></li>
 						<li><a href="employee_outlog.action">退出登录</a></li>
 					</ul>

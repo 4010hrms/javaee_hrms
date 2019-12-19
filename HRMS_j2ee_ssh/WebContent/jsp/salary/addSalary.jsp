@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
-<%@taglib uri="/struts-dojo-tags" prefix="sx"%>
+<%@taglib uri="/struts-dojo-tags" prefix="sx" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -18,7 +18,8 @@
 <title>人事考勤</title>
 <link href="${pageContext.request.contextPath }/css/style.css"
 	rel="stylesheet" type="text/css" media="screen" />
-<link href="${pageContext.request.contextPath }/css/main.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/css/main.css"
+	rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -48,52 +49,46 @@
 				<div align="center">
 					<table border="0" width="900px">
 						<tr>
-							<td align="center" style="font-size: 24px; color: #666">考勤管理</td>
+							<td align="center" style="font-size: 24px; color: #666">薪资添加</td>
 						</tr>
 						<tr>
-							<td align="right">
-							<a href="echeck_goAddEcheck.action">添加考勤记录</a>
-							</td>
+							<td><span style="color: red"><s:actionerror /></span></td>
+
 						</tr>
 					</table>
-					<br />
-					<table border="0" width="900px">
-						<thead>
+					<!-- action对应一个action标签，id对应提交时的对应关系 -->
+					<s:form id="saveForm" action="salary_save" method="post" namespace="/" theme="simple">
+						<table border="0" width="900px">
 							<tr>
-								<th>考勤编号</th>
-								<th>员工编号</th>
-								<th>上班时间</th>
-								<th>下班时间</th>
-								<th>状态</th>
-								<th>编辑</th>
-								<th>删除</th>
+								<td width="30%" align="right">员工编号：</td>
+								<td><s:textfield name="eid" /></td>
 							</tr>
-						</thead>
-						<tbody>
-			<s:iterator value="list" var="echeck">
-				<tr>
-					<td align="center"><s:property value="#echeck.echeckid" /></td>
-					<td align="center"><s:property value="#echeck.eid" /></td>
-					<td align="center"><s:date format="yyyy-MM-dd hh:mm:ss" name="#echeck.btime" /></td>
-					<td align="center"><s:date format="yyyy-MM-dd hh:mm:ss" name="#echeck.etime"/></td>
-					<td align="center"><s:property value="#echeck.state" /></td>
-				
-					<td align="center">
-					    <a href="echeck_findByid.action?echeckid=<s:property value="#echeck.echeckid"/>">
-					       <img src="${pageContext.request.contextPath }/images/mark.png" />
-					    </a>
-					</td>
-					<td align="center">
-					    <a href="echeck_delete.action?echeckid=<s:property value="#echeck.echeckid"/>">
-					       <img src="${pageContext.request.contextPath }/images/trash.gif" />
-					    </a>
-					</td>
-				</tr>
-			</s:iterator>
-		</tbody>
+							<tr>
+								<td width="30%" align="right">员工名字：</td>
+								<td><s:textfield name="ename" ></s:textfield></td>
+							</tr>
+							<tr>
+								<td width="30%" align="right">员工性别：</td>
+								<td><s:textfield name="esex" ></s:textfield></td>
+							</tr>
+							<tr>
+								<td width="30%" align="right">员工年龄：</td>
+								<td><s:textfield name="eage" ></s:textfield></td>
+							</tr>
+							<tr>
+								<td width="30%" align="right">员工月薪：</td>
+								<td><s:textfield name="esalary" ></s:textfield></td>
+							</tr>
+						</table>
+					</s:form>
+					<table border="0" width="900px">
+						<tr>
+							<td align="right"><a
+								href="javascript:document.getElementById('saveForm').submit()">保存</a>
+								&nbsp;&nbsp; <a href="javascript:history.go(-1)">退回 </a></td>
+						</tr>
 					</table>
-					<br />
-			
+
 				</div>
 				<s:if test="#session.existEmployee==null">
 					<form action="employee_outlog" method="get" name="myform"></form>
@@ -114,7 +109,7 @@
 						<li><a href="employee_findAll.action">员工管理 </a></li>
 						<li><a href="echeck_findAll.action">考勤管理</a></li>
 						<li><a href="aleave_findAll.action">假条管理</a></li>
-						<li><a href="employee_findAll.action">工薪管理</a></li>
+						<li><a href="salary_findAll.action">工薪管理</a></li>
 						<li><a href="employee_findAll.action">任务管理</a></li>
 						<li><a href="employee_outlog.action">退出登录</a></li>
 					</ul>
