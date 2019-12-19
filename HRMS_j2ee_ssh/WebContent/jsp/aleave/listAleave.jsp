@@ -93,6 +93,25 @@
 		</tbody>
 					</table>
 					<br />
+					<table border="0" >
+						<tr>
+							<td align="right"><span> 第<s:property
+										value="currPage" />/<s:property value="totalPage" />页
+							</span> &nbsp;&nbsp; <span> 总记录数：<s:property value="totalCount" />&nbsp;&nbsp;
+									每页显示:<s:property value="pageSize" /></span>&nbsp;&nbsp; <span>
+									<s:if test="currPage != 1">
+										<a href="aleave_findAll.action?currPage=1">[首页]</a>&nbsp;&nbsp;
+                    <a
+											href="aleave_findAll.action?currPage=<s:property value="currPage-1"/>">[上一页]</a>&nbsp;&nbsp;
+               </s:if> <s:if test="currPage != totalPage">
+										<a
+											href="aleave_findAll.action?currPage=<s:property value="currPage+1"/>">[下一页]</a>&nbsp;&nbsp;
+                    <a
+											href="aleave_findAll.action?currPage=<s:property value="totalPage"/>">[尾页]</a>&nbsp;&nbsp;
+               </s:if>
+							</span></td>
+						</tr>
+					</table>
 			
 				</div>
 				<s:if test="#session.existEmployee==null">

@@ -72,6 +72,10 @@
 				<td align="right">结束时间：</td>
 				<td><s:textfield  value="2019-01-01" name="jtime" /></td>
 			</tr>
+			<tr>
+			<td align="right">理由：</td>
+				<td><s:textfield  name="reason" /></td>
+			</tr>
 			
 		</table>
 	</s:form>

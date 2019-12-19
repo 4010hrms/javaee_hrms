@@ -2,11 +2,14 @@ package com.service;
 
 import java.util.List;
 
+
 import com.entity.Echeck;
+import com.entity.PageBean;
 
 
 public interface EcheckService {
 	
+	PageBean<Echeck> findByPage(Integer currPage);
 	
 	void save(Echeck echeck);
 	

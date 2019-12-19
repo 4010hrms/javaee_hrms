@@ -59,7 +59,7 @@
 					<br /> <br />
 					<!-- action对应一个action标签，id对应提交时的对应关系 -->
 				<s:form id="saveForm" action="aleave_edit" method="post" namespace="/" theme="simple">
-		<s:hidden name="echeckid" value="%{model.leaveid}"></s:hidden>
+		<s:hidden name="aleaveid" value="%{model.aleaveid}"></s:hidden>
 		<table style="font-size: :16px">
 			<tr>
 				<td align="right">员工编号：</td>

@@ -7,6 +7,9 @@ import com.entity.Echeck;
 
 public interface EcheckDao {
 
+	int findCount();
+	
+	List<Echeck> findByPage(int begin,int pageSize);
 	
 	void save(Echeck echeck);
 	

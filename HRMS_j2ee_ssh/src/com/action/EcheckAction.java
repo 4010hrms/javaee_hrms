@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import com.entity.Echeck;
+import com.entity.PageBean;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -18,6 +19,10 @@ public class EcheckAction extends ActionSupport implements ModelDriven<Echeck> {
 	private static final long serialVersionUID = 1L;
 
 	private Echeck echeck = new Echeck();
+	private Integer currPage = 1;
+	public void setCurrPage(Integer currPage) {
+		this.currPage = currPage;
+	}
 	
 	private EcheckService echeckService;
 	
@@ -31,10 +36,8 @@ public class EcheckAction extends ActionSupport implements ModelDriven<Echeck> {
 	}
 	
 	public String findAll(){
-		
-		List<Echeck> list = echeckService.Findall();
-		
-		ActionContext.getContext().getValueStack().set("list", list);
+		PageBean<Echeck> pageBean=echeckService.findByPage(currPage);
+		ActionContext.getContext().getValueStack().push(pageBean);
 		return "findAll";
 	}
 	
@@ -43,9 +46,6 @@ public class EcheckAction extends ActionSupport implements ModelDriven<Echeck> {
 	}
 	
 	public String saveecheck(){
-	
-		
-
 		echeckService.save(echeck);
 		return "addSuccess";
 	}
@@ -56,11 +56,10 @@ public class EcheckAction extends ActionSupport implements ModelDriven<Echeck> {
 	}
 	
 	public String edit(){
-		
-		
 		echeckService.update(echeck);
 		return "editSuccess";
 	}
+	
 	public String delete(){
 		echeck = echeckService.Findbyid(echeck.getEcheckid());
 		echeckService.delete(echeck);

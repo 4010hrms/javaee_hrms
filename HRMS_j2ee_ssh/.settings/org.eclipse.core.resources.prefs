@@ -2,4 +2,5 @@ eclipse.preferences.version=1
 encoding//src/com/action/DepartmentAction.java=GBK
 encoding//src/com/dao/impl/EmployeeDaoImpl.java=GBK
 encoding//src/com/service/impl/DepartmentServiceImpl.java=GBK
+encoding//src/com/service/impl/EcheckServiceImpl.java=gbk
 encoding/<project>=UTF-8
