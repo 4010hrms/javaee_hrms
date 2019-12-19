@@ -1,0 +1,130 @@
+body {
+	background: url('../images/BGD.jpg');
+	background-size: 100%;
+}
+
+.Content-Main {
+	max-width: 500px;
+	margin: auto;
+	border: none;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-shadow: 1px 1px 1px #444;
+	color: #D3D3D3;
+	background-color: rgba(230,230,250, 0.75);
+}
+.Content-Main2 {
+	max-width: 500px;
+	margin: auto;
+	border: none;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #ffffff;
+	background-color: rgba(176, 196, 222, 0.75);
+}
+
+.Content-Main h1 {
+	padding: 8px 0px 40px 10px;
+	display: block;
+	border-bottom: 1px solid #444;
+}
+
+.Main-sex {
+	padding-right: 13px;
+	padding-bottom: 13px;
+	font-weight: bold;
+	line-height: 4px;
+}
+
+.Content-Main select {
+	padding-right: 13px;
+	line-height: 9px;
+	width: 35%;
+	height: 25px;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	margin-bottom: 16px;
+	color: #666;
+}
+
+.text1 {
+	margin-left: 3px;
+}
+
+.Content-Main label {
+	margin: 0px 0px 5px;
+	display: block;
+}
+
+.Content-Main label>span {
+	width: 20%;
+	float: left;
+	text-align: right;
+	padding-right: 10px;
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.Main-sex input[type=radio] {
+	margin-top: 6px;
+	vertical-align: middle;
+}
+
+.Main-day {
+	padding-right: 13px;
+	padding-bottom: 13px;
+}
+
+/*ȡ��ʱ��ѡ�����е�����������*/
+.Main-day input[type="date"]::-webkit-inner-spin-button {
+	display: none;
+}
+
+.Main-day input[type="date"] {
+	border: 1px solid #ccc;
+	border-radius: 2px;
+}
+
+.Main-day input[type="date"]::-webkit-datetime-edit {
+	background: white;
+}
+
+.Content-Main input[type="text"] {
+	height: 25px;
+	width: 70%;
+	line-height: 15px;
+	padding: 5px 0px 5px 5px;
+	margin-bottom: 16px;
+	margin-right: 6px;
+	margin-top: 2px;
+	border: none;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	outline: 0 none;
+	color: #525252;
+}
+
+.Content-Main .button {
+	padding: 8px 24px 8px 24px;
+	margin-bottom: 8px;
+	border: none;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	font-weight: bold;
+	box-shadow: 1px 1px 1px #3D3D3D;
+	-moz-box-shadow: 1px 1px 1px #3D3D3D;
+	-webkit-box-shadow: 1px 1px 1px #3D3D3D;
+	color: #585858;
+	background: lightgrey;
+}
+
+.Content-Main .button:hover {
+	color: #333;
+	background-color: #EBEBEB;
+}

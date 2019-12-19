@@ -1,0 +1,137 @@
+body {
+	background: url('../images/BGD.jpg');
+	background-size: 100%;
+}
+
+* {
+	margin: 0;
+	padding: 0
+}
+
+.box {
+	width: 750px;
+	height: 450px;
+	border: 1px solid #ccc;
+	margin: 100px;
+}
+
+.box2 {
+	width: 500px;
+	height: 450px;
+	background-color: rgba(255, 255, 255, 0.75);
+	border: 1px solid #ccc;
+	float: right;
+	margin-right: 20px;
+	text-align:center;
+}
+
+.inner {
+	width: 750px;
+	height: 450px;
+	position: relative;
+	overflow: hidden;
+}
+
+.inner img {
+	width: 750px;
+	height: 450px;
+	vertical-align: top
+}
+
+ul {
+	width: 1000%;
+	position: absolute;
+	list-style: none;
+	left: 0;
+	top: 0;
+}
+
+h1 {
+	color: #fff;
+	text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	letter-spacing: 1px;
+	text-align: center;
+}
+
+.inner li {
+	float: left;
+}
+
+ol {
+	position: absolute;
+	height: 20px;
+	right: 20px;
+	bottom: 20px;
+	text-align: center;
+	padding: 5px;
+}
+
+ol li {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	background-color: #fff;
+	margin: 5px;
+	cursor: pointer;
+}
+
+ol .current {
+	background-color: red;
+}
+
+.ha {
+	
+}
+
+.ha ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+.ha li {
+	float: left;
+}
+
+.ha li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+.ha li a:hover {
+	background-color: #111;
+}
+
+#arr {
+	display: none;
+}
+
+#arr span {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	left: 5px;
+	top: 50%;
+	margin-top: -20px;
+	background: #fff;
+	cursor: pointer;
+	line-height: 40px;
+	text-align: center;
+	font-weight: bold;
+	font-family: '黑体';
+	font-size: 30px;
+	color: #000;
+	opacity: 0.5;
+	border: 1px solid #fff;
+}
+
+#arr #right {
+	right: 5px;
+	left: auto;
+}
