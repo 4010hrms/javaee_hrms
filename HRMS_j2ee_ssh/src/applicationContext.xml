@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop" 
 	xmlns:tx="http://www.springframework.org/schema/tx"
@@ -44,8 +43,7 @@
 			<list>
 				<value>com/entity/Department.hbm.xml</value>
 				<value>com/entity/Employee.hbm.xml</value>
-				<value>com/entity/Echeck.hbm.xml</value>
-				<value>com/entity/Aleave.hbm.xml</value>
+				<value>com/entity/Salary.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -55,18 +53,12 @@
 		<property name="employeeService" ref="employeeService"></property>
 		<property name="departmentService" ref="departmentService"></property>
 	</bean>
+	<bean id="salaryAction" class="com.action.SalaryAction" scope="prototype">
+		<property name="salaryService" ref="salaryService"></property>
+	</bean>
 	<bean id="departmentAction" class="com.action.DepartmentAction"
 		scope="prototype">
 		<property name="departmentService" ref="departmentService"></property>
-	</bean>
-	
-	<bean id="echeckAction" class="com.action.EcheckAction"
-		scope="prototype">
-		<property name="echeckService" ref="echeckService"></property>
-	</bean>
-	<bean id="aleaveAction" class="com.action.AleaveAction"
-		scope="prototype">
-		<property name="aleaveService" ref="aleaveService"></property>
 	</bean>
 	<!-- 配置业务层service -->
 	<bean id="employeeService" class="com.service.impl.EmployeeServiceImpl">
@@ -74,26 +66,18 @@
 	</bean>
 	<bean id="departmentService" class="com.service.impl.DepartmentServiceImpl">
 		<property name="departmentDao" ref="departmentDao"></property>
-	</bean> 
-	
-	<bean id="echeckService" class="com.service.impl.EcheckServiceImpl">
-		<property name="echeckDao" ref="echeckDao"></property>
-	</bean> 
-	<bean id="aleaveService" class="com.service.impl.AleaveServiceImpl">
-		<property name="aleaveDao" ref="aleaveDao"></property>
+	</bean>
+	<bean id="salaryService" class="com.service.impl.SalaryServiceImpl">
+		<property name="salaryDao" ref="salaryDao"></property>
 	</bean> 
 	<!-- 配置dao -->
 	<bean id="employeeDao" class="com.dao.impl.EmployeeDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="salaryDao" class="com.dao.impl.SalaryDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
     <bean id="departmentDao" class="com.dao.impl.DepartmentDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-
-	<bean id="echeckDao" class="com.dao.impl.EcheckDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-	<bean id="aleaveDao" class="com.dao.impl.AleaveDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<!-- 配置事务管理器 -->
