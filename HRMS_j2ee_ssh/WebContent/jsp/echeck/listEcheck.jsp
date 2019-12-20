@@ -55,6 +55,14 @@
 							<a href="echeck_goAddEcheck.action">添加考勤记录</a>
 							</td>
 						</tr>
+						<tr>
+							<td align="right">
+							<form action="echeck_search" method="post">
+							<input type="text" name="echeckid" placeholder="请输入考勤编号" required maxLength="20">
+							<input type="submit" class="button"value="查询"> 
+							</form>
+							</td>
+						</tr>
 					</table>
 					<br />
 					<table border="0" width="900px">

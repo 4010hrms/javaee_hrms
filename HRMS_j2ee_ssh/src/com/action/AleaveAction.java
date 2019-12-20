@@ -65,6 +65,12 @@ public class AleaveAction extends ActionSupport implements ModelDriven<Aleave> {
 		aleave = aleaveService.Findbyid(aleave.getAleaveid());
 		return "goEditAleave";
 	}
+	public String search(){
+		aleave =  aleaveService.Findbyid(aleave.getAleaveid());
+		ActionContext.getContext().getSession().put("aleave", aleave);
+		System.out.println("!!!!!!!!"+aleave.toString());
+		return "result";
+	}
 	
 	public String edit(){
 		

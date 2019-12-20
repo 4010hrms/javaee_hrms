@@ -48,12 +48,7 @@
 				<div align="center">
 					<table border="0" width="900px">
 						<tr>
-							<td align="center" style="font-size: 24px; color: #666">假条管理</td>
-						</tr>
-						<tr>
-							<td align="right">
-							<a href="aleave_goAddAleave.action">添加假条</a>
-							</td>
+							<td align="center" style="font-size: 24px; color: #666">考勤管理</td>
 						</tr>
 						<tr>
 							<td align="right">
@@ -70,20 +65,20 @@
 							<tr>
 								<th>假条编号</th>
 								<th>员工编号</th>
-								<th>开始时间</th>
-								<th>结束时间</th>
+								<th>上班时间</th>
+								<th>下班时间</th>
 								<th>理由</th>
 								<th>编辑</th>
 								<th>删除</th>
 							</tr>
 						</thead>
 						<tbody>
-			<s:iterator value="list" var="aleave">
+			<s:iterator value="#session.aleave" var="aleave">
 				<tr>
 					<td align="center"><s:property value="#aleave.aleaveid" /></td>
 					<td align="center"><s:property value="#aleave.eid" /></td>
-					<td align="center"><s:date format="yyyy-MM-dd " name="#aleave.ktime" /></td>
-					<td align="center"><s:date format="yyyy-MM-dd " name="#aleave.jtime"/></td>
+					<td align="center"><s:date format="yyyy-MM-dd hh:mm:ss" name="#aleave.ktime" /></td>
+					<td align="center"><s:date format="yyyy-MM-dd hh:mm:ss" name="#aleave.jtime"/></td>
 					<td align="center"><s:property value="#aleave.reason" /></td>
 				
 					<td align="center">
@@ -101,25 +96,7 @@
 		</tbody>
 					</table>
 					<br />
-					<table border="0" >
-						<tr>
-							<td align="right"><span> 第<s:property
-										value="currPage" />/<s:property value="totalPage" />页
-							</span> &nbsp;&nbsp; <span> 总记录数：<s:property value="totalCount" />&nbsp;&nbsp;
-									每页显示:<s:property value="pageSize" /></span>&nbsp;&nbsp; <span>
-									<s:if test="currPage != 1">
-										<a href="aleave_findAll.action?currPage=1">[首页]</a>&nbsp;&nbsp;
-                    <a
-											href="aleave_findAll.action?currPage=<s:property value="currPage-1"/>">[上一页]</a>&nbsp;&nbsp;
-               </s:if> <s:if test="currPage != totalPage">
-										<a
-											href="aleave_findAll.action?currPage=<s:property value="currPage+1"/>">[下一页]</a>&nbsp;&nbsp;
-                    <a
-											href="aleave_findAll.action?currPage=<s:property value="totalPage"/>">[尾页]</a>&nbsp;&nbsp;
-               </s:if>
-							</span></td>
-						</tr>
-					</table>
+			
 			
 				</div>
 				<s:if test="#session.existEmployee==null">
@@ -129,6 +106,7 @@
 					</script>
 				</s:if>
 			</div>
+			
 
 
 		</div>
