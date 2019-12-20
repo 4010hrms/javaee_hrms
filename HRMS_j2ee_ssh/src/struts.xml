@@ -32,6 +32,7 @@
 			<result name="deleteSuccess" type="redirect">department_findAll.action</result>
 			<result name="result">/jsp/department/resultDepartment.jsp</result>
 		</action>
+		
 		<action name="echeck_*" class="echeckAction" method="{1}">
 			<result name="findAll">/jsp/echeck/listEcheck.jsp</result>
 			<result name="goAddEcheck">/jsp/echeck/addEcheck.jsp</result>
@@ -39,6 +40,7 @@
 			<result name="goEditEcheck">/jsp/echeck/editEcheck.jsp</result>
 			<result name="editSuccess" type="redirect">echeck_findAll.action</result>
 			<result name="deleteSuccess" type="redirect">echeck_findAll.action</result>
+			<result name="result">/jsp/echeck/resultEcheck.jsp</result>
 		</action>
 		
 		<action name="aleave_*" class="aleaveAction" method="{1}">
@@ -48,6 +50,28 @@
 			<result name="goEditAleave">/jsp/aleave/editAleave.jsp</result>
 			<result name="editSuccess" type="redirect">aleave_findAll.action</result>
 			<result name="deleteSuccess" type="redirect">aleave_findAll.action</result>
+			<result name="result">/jsp/aleave/resultAleave.jsp</result>
+			</action>
+			
+		<action name="salary_*" class="salaryAction" method="{1}">
+			<result name="findAll">/jsp/salary/listSalary.jsp</result>
+			<result name="goAddSalary">/jsp/salary/addSalary.jsp</result>
+			<result name="gofindSalary">/jsp/salary/findSalary.jsp</result>
+			<result name="addSuccess" type="redirect">salary_findAll.action</result>
+			<result name="goEditSalary">/jsp/salary/editSalary.jsp</result>
+			<result name="updateSuccess" type="redirect">salary_findAll.action</result>
+			<result name="deleteSuccess" type="redirect">salary_findAll.action</result>
+			<result name="editSuccess" type="redirect">salary_findAll.action</result>
+		</action>
+		
+		<action name="task_*" class="taskAction" method="{1}">
+			<result name="findAll">/jsp/task/listTask.jsp</result>
+			<result name="goAddTask">/jsp/task/addTask.jsp</result>
+			<result name="addSuccess" type="redirect">task_findAll.action</result>
+			<result name="goEditTask">/jsp/task/editTask.jsp</result>
+			<result name="updateSuccess" type="redirect">task_findAll.action</result>
+			<result name="deleteSuccess" type="redirect">task_findAll.action</result>
+			<result name="result">/jsp/task/resultTask.jsp</result>
 		</action>
 	</package>
 </struts>    

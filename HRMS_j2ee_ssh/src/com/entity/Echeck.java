@@ -9,6 +9,15 @@ public class Echeck implements java.io.Serializable {
 	private  Date btime;
 	private  Date etime;
 	private  String state;
+	
+	
+	
+
+	@Override
+	public String toString() {
+		return "Echeck [echeckid=" + echeckid + ", eid=" + eid + ", btime=" + btime + ", etime=" + etime + ", state="
+				+ state + "]";
+	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

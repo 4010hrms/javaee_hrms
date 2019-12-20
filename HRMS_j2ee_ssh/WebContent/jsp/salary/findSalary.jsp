@@ -1,16 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
-<%@taglib uri="/struts-dojo-tags" prefix="sx" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%
-	java.util.HashMap map = new java.util.LinkedHashMap();
-	request.setAttribute("default", 1);
-%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang=en>
 <head>
@@ -34,9 +30,9 @@
 		<div id="content">
 			<div class="post">
 				<B>关于人事考勤系统</B>
-				<p>应用SSH框架基于JSP的人事考勤管理平台，本平台面向两种种用户:员工和管理员</p>
+				<p>应用SSH框架基于JSP的人事考勤管理平台，本平台面向两种用户:员工和管理员</p>
 				<p>
-					员工可以维护自己的信息,进行考勤打、和查询工作任务和请假 <br />
+					员工可以维护自己的信息,进行考勤打卡和查询工作任务和请假 <br />
 				</p>
 				<p>
 					管理员可以对员工进行登录，信息,考勤,请假,工资,任务进行管理 <br />
@@ -49,39 +45,57 @@
 				<div align="center">
 					<table border="0" width="900px">
 						<tr>
-							<td align="center" style="font-size: 24px; color: #666">考勤添加</td>
+							<td align="center" style="font-size: 24px; color: #666">薪资管理</td>
 						</tr>
 						<tr>
-							<td><span style="color: red"><s:actionerror /></span></td>
-
+							<td align="right">
+							<form action="salary_findSalary" method="post">
+							<input type="text" name="eid" placeholder="请输入员工编号" required maxLength="20">
+							<input type="submit" class="button"value="查询"> 
+							</form>
+							</td>
 						</tr>
 					</table>
-					<!-- action对应一个action标签，id对应提交时的对应关系 -->
-					<s:form id="saveForm" action="echeck_saveecheck" method="post" namespace="/" theme="simple">
-		<table border="0" width="900px">
-			<tr>
-				<td width="30%" align="right">员工编号</td>
-				<td><s:textfield name="eid" /></td>
-			</tr>
-			
-			<tr>
-				<td align="right">上班时间：</td>
-				<td><s:textfield value="2019-01-01 01:00:00" name="btime" /></td>
-			</tr>
-			<tr>
-				<td align="right">下班时间：</td>
-				<td><s:textfield  value="2019-01-01 01:00:00" name="etime" /></td>
-			</tr>
-		</table>
-	</s:form>
+					<br/>
 					<table border="0" width="900px">
-						<tr>
-							<td align="right"><a
-								href="javascript:document.getElementById('saveForm').submit()">保存</a>
-								&nbsp;&nbsp; <a href="javascript:history.go(-1)">退回 </a></td>
-						</tr>
+						<thead>
+							<tr>
+								<th width="300">员工编号</th>
+								<th width="300">员工姓名</th>
+								<th width="300">员工性别</th>
+								<th width="300">员工年龄</th>
+								<th width="300">员工薪资</th>
+								<th width="300">编辑</th>
+								<th width="300">删除</th>
+							</tr>
+						</thead>
+						<tbody>
+							<s:iterator value="#session.salary" var="d">
+								<tr>
+									<td align="center"><s:property value="#d.eid" /></td>
+									<td align="center"><s:property value="#d.ename" /></td>
+									<td align="center"><s:property value="#d.esex" /></td>
+									<td align="center"><s:property value="#d.eage" /></td>
+									<td align="center"><s:property value="#d.esalary" /></td>
+									<td align="center">
+										<!-- 编辑部门update-->
+										 <a href="salary_findById.action?did=<s:property value="#d.eid"/>">
+											<img
+											src="${pageContext.request.contextPath }/images/mark.png" />
+									</a>
+									</td>
+									<td align="center">
+										<!-- 删除部门 --> <a
+										href="salary_delete.action?did=<s:property value="#d.eid"/>">
+											<img
+											src="${pageContext.request.contextPath }/images/trash.gif" />
+									</a>
+									</td>
+								</tr>
+							</s:iterator>
+						</tbody>
 					</table>
-
+					<br />
 				</div>
 				<s:if test="#session.existEmployee==null">
 					<form action="employee_outlog" method="get" name="myform"></form>

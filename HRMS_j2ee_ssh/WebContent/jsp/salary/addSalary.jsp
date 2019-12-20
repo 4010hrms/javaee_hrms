@@ -49,7 +49,7 @@
 				<div align="center">
 					<table border="0" width="900px">
 						<tr>
-							<td align="center" style="font-size: 24px; color: #666">考勤添加</td>
+							<td align="center" style="font-size: 24px; color: #666">薪资添加</td>
 						</tr>
 						<tr>
 							<td><span style="color: red"><s:actionerror /></span></td>
@@ -57,23 +57,30 @@
 						</tr>
 					</table>
 					<!-- action对应一个action标签，id对应提交时的对应关系 -->
-					<s:form id="saveForm" action="echeck_saveecheck" method="post" namespace="/" theme="simple">
-		<table border="0" width="900px">
-			<tr>
-				<td width="30%" align="right">员工编号</td>
-				<td><s:textfield name="eid" /></td>
-			</tr>
-			
-			<tr>
-				<td align="right">上班时间：</td>
-				<td><s:textfield value="2019-01-01 01:00:00" name="btime" /></td>
-			</tr>
-			<tr>
-				<td align="right">下班时间：</td>
-				<td><s:textfield  value="2019-01-01 01:00:00" name="etime" /></td>
-			</tr>
-		</table>
-	</s:form>
+					<s:form id="saveForm" action="salary_save" method="post" namespace="/" theme="simple">
+						<table border="0" width="900px">
+							<tr>
+								<td width="30%" align="right">员工编号：</td>
+								<td><s:textfield name="eid" /></td>
+							</tr>
+							<tr>
+								<td width="30%" align="right">员工名字：</td>
+								<td><s:textfield name="ename" ></s:textfield></td>
+							</tr>
+							<tr>
+								<td width="30%" align="right">员工性别：</td>
+								<td><s:textfield name="esex" ></s:textfield></td>
+							</tr>
+							<tr>
+								<td width="30%" align="right">员工年龄：</td>
+								<td><s:textfield name="eage" ></s:textfield></td>
+							</tr>
+							<tr>
+								<td width="30%" align="right">员工月薪：</td>
+								<td><s:textfield name="esalary" ></s:textfield></td>
+							</tr>
+						</table>
+					</s:form>
 					<table border="0" width="900px">
 						<tr>
 							<td align="right"><a

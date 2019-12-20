@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
-<%@taglib uri="/struts-dojo-tags" prefix="sx" %>
+<%@taglib uri="/struts-dojo-tags" prefix="sx"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -49,31 +49,28 @@
 				<div align="center">
 					<table border="0" width="900px">
 						<tr>
-							<td align="center" style="font-size: 24px; color: #666">考勤添加</td>
+							<td align="center" style="font-size: 24px; color: #666">薪资修改</td>
 						</tr>
 						<tr>
 							<td><span style="color: red"><s:actionerror /></span></td>
 
 						</tr>
 					</table>
+					<br /> <br />
 					<!-- action对应一个action标签，id对应提交时的对应关系 -->
-					<s:form id="saveForm" action="echeck_saveecheck" method="post" namespace="/" theme="simple">
-		<table border="0" width="900px">
-			<tr>
-				<td width="30%" align="right">员工编号</td>
-				<td><s:textfield name="eid" /></td>
-			</tr>
-			
-			<tr>
-				<td align="right">上班时间：</td>
-				<td><s:textfield value="2019-01-01 01:00:00" name="btime" /></td>
-			</tr>
-			<tr>
-				<td align="right">下班时间：</td>
-				<td><s:textfield  value="2019-01-01 01:00:00" name="etime" /></td>
-			</tr>
-		</table>
-	</s:form>
+					<s:form id="saveForm" action="salary_edit" method="post" namespace="/" theme="simple">
+						<s:hidden name="eid" value="%{model.eid}"></s:hidden>
+						<s:hidden name="ename" value="%{model.ename}"></s:hidden>
+						<s:hidden name="esex" value="%{model.esex}"></s:hidden>
+						<s:hidden name="eage" value="%{model.eage}"></s:hidden>
+						<table style="font-size: :16px">
+							<tr>
+								<td align="right">员工薪资：</td>
+								<td><s:textfield value="%{model.esalary}" name="esalary" /></td>
+								
+							</tr>
+						</table>
+					</s:form>
 					<table border="0" width="900px">
 						<tr>
 							<td align="right"><a
@@ -81,7 +78,6 @@
 								&nbsp;&nbsp; <a href="javascript:history.go(-1)">退回 </a></td>
 						</tr>
 					</table>
-
 				</div>
 				<s:if test="#session.existEmployee==null">
 					<form action="employee_outlog" method="get" name="myform"></form>

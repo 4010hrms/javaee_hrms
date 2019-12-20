@@ -54,6 +54,12 @@ public class EcheckAction extends ActionSupport implements ModelDriven<Echeck> {
 		echeck = echeckService.Findbyid(echeck.getEcheckid());
 		return "goEditEcheck";
 	}
+	public String search(){
+		echeck =  echeckService.Findbyid(echeck.getEcheckid());
+		ActionContext.getContext().getSession().put("echeck", echeck);
+		System.out.println("!!!!!!!!"+echeck.toString());
+		return "result";
+	}
 	
 	public String edit(){
 		echeckService.update(echeck);

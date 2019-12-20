@@ -9,6 +9,11 @@ public class Aleave implements java.io.Serializable {
 	private  Date ktime;
 	private  Date jtime;
 	private  String reason;
+	@Override
+	public String toString() {
+		return "Aleave [aleaveid=" + aleaveid + ", eid=" + eid + ", ktime=" + ktime + ", jtime=" + jtime + ", reason="
+				+ reason + "]";
+	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
