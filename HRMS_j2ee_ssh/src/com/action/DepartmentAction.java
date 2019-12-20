@@ -1,7 +1,8 @@
 package com.action;
 
+import java.util.List;
+
 import com.entity.Department;
-import com.entity.Employee;
 import com.entity.PageBean;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -26,10 +27,19 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 		this.currPage = currPage;
 	}
 
-
+	public String search(){
+		System.out.println(department.toString());
+		List<Department> resultlist =  departmentService.search(department);
+		ActionContext.getContext().getSession().put("resultlist", resultlist);
+		System.out.println(resultlist.toString());
+		
+		return "result";
+	}
+	
 	public String findAll(){
 		PageBean<Department> pageBean = departmentService.findByPage(currPage);
 		ActionContext.getContext().getValueStack().push(pageBean);
+		System.out.println(pageBean.toString());
 		return "findAll";
 	}
 
@@ -74,4 +84,8 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 		departmentService.delete(department);
 		return "deleteSuccess";
 	}
+	
+	
+	
+	
 }

@@ -103,7 +103,14 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 		ActionContext.getContext().getSession().clear();
 		return "INPUT";
 	}
-
+	
+	public String search(){
+		System.out.println(employee.toString());
+		List<Employee> resultlist =  employeeService.search(employee);
+		ActionContext.getContext().getSession().put("resultlist", resultlist);
+		System.out.println(resultlist.toString());
+		return "result";
+	}
 
 	/**
 	 * 分页查询员工

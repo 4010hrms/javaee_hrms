@@ -48,8 +48,15 @@
 							<td align="center" style="font-size: 24px; color: #666">部门管理</td>
 						</tr>
 						<tr>
-							<td align="right"><a
-								href="department_goAddDepartment.action">添加部门</a></td>
+							<td align="right"><a href="department_goAddDepartment.action">添加部门</a></td>
+						</tr>
+						<tr>
+							<td align="right">
+							<form action="department_search" method="post">
+							<input type="text" name="dname" placeholder="请输入部门名称" required maxLength="20">
+							<input type="submit" class="button"value="查询"> 
+							</form>
+							</td>
 						</tr>
 					</table>
 					<br />
@@ -66,8 +73,7 @@
 								<tr>
 									<td align="center"><s:property value="#d.dname" /></td>
 									<td align="center">
-										<!-- 编辑部门update--> <a
-										href="department_findById.action?did=<s:property value="#d.did"/>">
+										<!-- 编辑部门update--> <a href="department_findById.action?did=<s:property value="#d.did"/>">
 											<img
 											src="${pageContext.request.contextPath }/images/mark.png" />
 									</a>
@@ -121,11 +127,11 @@
 					<ul>
 						<li><a href="department_findAll.action">部门管理</a></li>
 						<li><a href="employee_findAll.action">员工管理 </a></li>
-						<li><a href="employee_findAll.action">考勤管理</a></li>
-						<li><a href="employee_findAll.action">假条管理</a></li>
+						<li><a href="echeck_findAll.action">考勤管理</a></li>
+						<li><a href="aleave_findAll.action">假条管理</a></li>
 						<li><a href="employee_findAll.action">工薪管理</a></li>
 						<li><a href="employee_findAll.action">任务管理</a></li>
-						<li><a href="employee_findAll.action">退出登录</a></li>
+						<li><a href="employee_outlog.action">退出登录</a></li>
 					</ul>
 				</li>
 			</ul>

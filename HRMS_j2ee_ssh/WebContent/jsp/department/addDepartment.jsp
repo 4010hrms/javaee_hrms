@@ -94,8 +94,8 @@
 					<ul>
 						<li><a href="department_findAll.action">部门管理</a></li>
 						<li><a href="employee_findAll.action">员工管理 </a></li>
-						<li><a href="employee_findAll.action">考勤管理</a></li>
-						<li><a href="employee_findAll.action">假条管理</a></li>
+						<li><a href="echeck_findAll.action">考勤管理</a></li>
+						<li><a href="aleave_findAll.action">假条管理</a></li>
 						<li><a href="employee_findAll.action">工薪管理</a></li>
 						<li><a href="employee_findAll.action">任务管理</a></li>
 						<li><a href="employee_outlog.action">退出登录</a></li>

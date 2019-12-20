@@ -74,4 +74,14 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements EmployeeDao 
 		// TODO Auto-generated method stub
 		this.getHibernateTemplate().delete(employee);
 	}
+
+	@Override
+	public List<Employee> search(Employee employee) {
+		// TODO Auto-generated method stub
+		System.out.println("EmployeeDao:"+employee.getEname());
+		List<Employee> list = this.getHibernateTemplate().find("from Employee b where b.ename like'%"+employee.getEname()+"%'");
+		System.out.println("111111"+list.toString());
+
+		return list;
+	}
 }
