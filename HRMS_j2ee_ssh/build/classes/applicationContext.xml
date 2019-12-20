@@ -46,6 +46,7 @@
 				<value>com/entity/Salary.hbm.xml</value>
 				<value>com/entity/Echeck.hbm.xml</value>
 				<value>com/entity/Aleave.hbm.xml</value>
+				<value>com/entity/Task.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -71,6 +72,10 @@
 		scope="prototype">
 		<property name="aleaveService" ref="aleaveService"></property>
 	</bean>
+	<bean id="taskAction" class="com.action.TaskAction"
+		scope="prototype">
+		<property name="taskService" ref="taskService"></property>
+	</bean>
 	<!-- 配置业务层service -->
 	<bean id="employeeService" class="com.service.impl.EmployeeServiceImpl">
 		<property name="employeeDao" ref="employeeDao"></property>
@@ -87,7 +92,9 @@
 	<bean id="aleaveService" class="com.service.impl.AleaveServiceImpl">
 		<property name="aleaveDao" ref="aleaveDao"></property>
 	</bean> 
-	
+	<bean id="taskService" class="com.service.impl.TaskServiceImpl">
+		<property name="taskDao" ref="taskDao"></property>
+	</bean>
 	<!-- 配置dao -->
 	<bean id="employeeDao" class="com.dao.impl.EmployeeDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
@@ -104,7 +111,9 @@
 	<bean id="aleaveDao" class="com.dao.impl.AleaveDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
+	<bean id="taskDao" class="com.dao.impl.TaskDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<!-- 配置事务管理器 -->
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">

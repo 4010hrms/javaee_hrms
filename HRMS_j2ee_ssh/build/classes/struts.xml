@@ -59,5 +59,14 @@
 			<result name="editSuccess" type="redirect">salary_findAll.action</result>
 		</action>
 		
+		<action name="task_*" class="taskAction" method="{1}">
+			<result name="findAll">/jsp/task/listTask.jsp</result>
+			<result name="goAddTask">/jsp/task/addTask.jsp</result>
+			<result name="addSuccess" type="redirect">task_findAll.action</result>
+			<result name="goEditTask">/jsp/task/editTask.jsp</result>
+			<result name="updateSuccess" type="redirect">task_findAll.action</result>
+			<result name="deleteSuccess" type="redirect">task_findAll.action</result>
+			<result name="result">/jsp/task/resultTask.jsp</result>
+		</action>
 	</package>
 </struts>    
