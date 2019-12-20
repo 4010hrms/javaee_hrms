@@ -54,6 +54,14 @@
 							<td align="right"><a href="salary_goAddSalary.action">添加薪资</a>
 							</td>
 						</tr>
+						<tr>
+							<td align="right">
+							<form action="salary_findSalary" method="post">
+							<input type="text" name="eid" placeholder="请输入员工编号" required maxLength="20">
+							<input type="submit" class="button"value="查询"> 
+							</form>
+							</td>
+						</tr>
 					</table>
 					<br />
 					<table border="0" width="900px">

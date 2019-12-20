@@ -1,5 +1,8 @@
 package com.action;
 
+import java.util.List;
+
+import com.entity.Department;
 import com.entity.PageBean;
 import com.entity.Salary;
 import com.opensymphony.xwork2.ActionContext;
@@ -78,7 +81,9 @@ public class SalaryAction extends ActionSupport implements ModelDriven<Salary>{
 		return "goEditSalary";
 	}
 	public String findSalary(){
-		salary = salaryService.findById(salary.getEid());
+		salary =  salaryService.findById(salary.getEid());
+		ActionContext.getContext().getSession().put("salary", salary);
+		System.out.println(salary.toString());
 		return "gofindSalary";
 	}
 	/**

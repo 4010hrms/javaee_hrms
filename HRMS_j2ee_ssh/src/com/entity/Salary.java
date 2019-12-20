@@ -19,6 +19,11 @@ public class Salary {
 	}
 
 	
+	@Override
+	public String toString() {
+		return "Salary [eid=" + eid + ", ename=" + ename + ", esex=" + esex + ", eage=" + eage + ", esalary=" + esalary
+				+ "]";
+	}
 	public Salary(double esalary) {
 		super();
 		this.esalary = esalary;

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
-<%@taglib uri="/struts-dojo-tags" prefix="sx"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -15,7 +14,8 @@
 <title>人事考勤</title>
 <link href="${pageContext.request.contextPath }/css/style.css"
 	rel="stylesheet" type="text/css" media="screen" />
-<link href="${pageContext.request.contextPath }/css/main.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/css/main.css"
+	rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -30,9 +30,9 @@
 		<div id="content">
 			<div class="post">
 				<B>关于人事考勤系统</B>
-				<p>应用SSH框架基于JSP的人事考勤管理平台，本平台面向两种种用户:员工和管理员</p>
+				<p>应用SSH框架基于JSP的人事考勤管理平台，本平台面向两种用户:员工和管理员</p>
 				<p>
-					员工可以维护自己的信息,进行考勤打、和查询工作任务和请假 <br />
+					员工可以维护自己的信息,进行考勤打卡和查询工作任务和请假 <br />
 				</p>
 				<p>
 					管理员可以对员工进行登录，信息,考勤,请假,工资,任务进行管理 <br />
@@ -45,34 +45,57 @@
 				<div align="center">
 					<table border="0" width="900px">
 						<tr>
-							<td align="center" style="font-size: 24px; color: #666">薪资查询</td>
+							<td align="center" style="font-size: 24px; color: #666">薪资管理</td>
+						</tr>
+						<tr>
+							<td align="right">
+							<form action="salary_findSalary" method="post">
+							<input type="text" name="eid" placeholder="请输入员工编号" required maxLength="20">
+							<input type="submit" class="button"value="查询"> 
+							</form>
+							</td>
 						</tr>
 					</table>
-					<br />
+					<br/>
 					<table border="0" width="900px">
 						<thead>
 							<tr>
-								<th>员工编号</th>
-								<th>员工姓名</th>
-								<th>员工性别</th>
-								<th>员工年龄</th>
-								<th>员工薪资</th>
+								<th width="300">员工编号</th>
+								<th width="300">员工姓名</th>
+								<th width="300">员工性别</th>
+								<th width="300">员工年龄</th>
+								<th width="300">员工薪资</th>
+								<th width="300">编辑</th>
+								<th width="300">删除</th>
 							</tr>
 						</thead>
 						<tbody>
-							<s:iterator value="list" var="e">
+							<s:iterator value="#session.salary" var="d">
 								<tr>
-									<td align="center"><s:property value="#e.eid" /></td>
-									<td align="center"><s:property value="#e.ename" /></td>
-									<td align="center"><s:property value="#e.esex" /></td>
-									<td align="center"><s:property value="#e.eage"/></td>
-									<td align="center"><s:property value="#e.esalary"/></td>
+									<td align="center"><s:property value="#d.eid" /></td>
+									<td align="center"><s:property value="#d.ename" /></td>
+									<td align="center"><s:property value="#d.esex" /></td>
+									<td align="center"><s:property value="#d.eage" /></td>
+									<td align="center"><s:property value="#d.esalary" /></td>
+									<td align="center">
+										<!-- 编辑部门update-->
+										 <a href="salary_findById.action?did=<s:property value="#d.eid"/>">
+											<img
+											src="${pageContext.request.contextPath }/images/mark.png" />
+									</a>
+									</td>
+									<td align="center">
+										<!-- 删除部门 --> <a
+										href="salary_delete.action?did=<s:property value="#d.eid"/>">
+											<img
+											src="${pageContext.request.contextPath }/images/trash.gif" />
+									</a>
+									</td>
 								</tr>
 							</s:iterator>
 						</tbody>
 					</table>
 					<br />
-					
 				</div>
 				<s:if test="#session.existEmployee==null">
 					<form action="employee_outlog" method="get" name="myform"></form>
@@ -80,7 +103,9 @@
 						document.myform.submit();
 					</script>
 				</s:if>
-			  </div>
+			</div>
+
+
 		</div>
 		<div id="sidebar">
 			<ul>
@@ -91,7 +116,7 @@
 						<li><a href="employee_findAll.action">员工管理 </a></li>
 						<li><a href="echeck_findAll.action">考勤管理</a></li>
 						<li><a href="aleave_findAll.action">假条管理</a></li>
-						<li><a href="salary_findAll.action">工薪管理</a></li>
+						<li><a href="employee_findAll.action">工薪管理</a></li>
 						<li><a href="employee_findAll.action">任务管理</a></li>
 						<li><a href="employee_outlog.action">退出登录</a></li>
 					</ul>
