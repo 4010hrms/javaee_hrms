@@ -3,7 +3,8 @@ package com.action;
 import java.util.List;
 
 import com.entity.Aleave;
-import com.entity.Echeck;
+
+import com.entity.PageBean;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -17,7 +18,22 @@ public class AleaveAction extends ActionSupport implements ModelDriven<Aleave> {
 	private static final long serialVersionUID = 1L;
 	
 	private Aleave aleave=new Aleave();
+	private Integer currPage = 1;
+	public void setCurrPage(Integer currPage) {
+		this.currPage = currPage;
+	}
+	
 	private AleaveService aleaveService;
+	
+	
+
+	public AleaveService getAleaveService() {
+		return aleaveService;
+	}
+
+	public void setAleaveService(AleaveService aleaveService) {
+		this.aleaveService = aleaveService;
+	}
 
 	@Override
 	public Aleave getModel() {
@@ -25,12 +41,12 @@ public class AleaveAction extends ActionSupport implements ModelDriven<Aleave> {
 		return aleave;
 	}
 
-public String findAll(){
+	public String findAll(){
 		
-		List<Aleave> list = aleaveService.Findall();
-		
-		ActionContext.getContext().getValueStack().set("list", list);
+		PageBean<Aleave> pageBean=aleaveService.findByPage(currPage);
+		ActionContext.getContext().getValueStack().push(pageBean);
 		return "findAll";
+	
 	}
 	
 	public String goAddAleave(){

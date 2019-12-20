@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.entity.Echeck;
+
+import com.entity.PageBean;
 import com.dao.EcheckDao;
 
 import com.service.EcheckService;
@@ -13,6 +15,7 @@ import com.service.EcheckService;
 
 
 @Transactional
+
 public class EcheckServiceImpl implements EcheckService {
     private EcheckDao echeckDao;
    
@@ -48,6 +51,33 @@ public class EcheckServiceImpl implements EcheckService {
 	public Echeck Findbyid(Integer echeckid) {
 		// TODO Auto-generated method stub
 		return echeckDao.Findbyid(echeckid);
+	}
+
+	@Override
+	public PageBean<Echeck> findByPage(Integer currPage) {
+		// TODO Auto-generated method stub
+		  PageBean<Echeck> pageBean = new PageBean<Echeck>();
+	        // 封装当前页数
+	        pageBean.setCurrPage(currPage);
+	        // 封装每页记录数
+	        int pageSize = 5;
+	        pageBean.setPageSize(pageSize);
+	        // 封装总记录数
+	        int totalCount = echeckDao.findCount();
+	        pageBean.setTotalCount(totalCount);
+	        // 封装页数
+	        int totalPage;
+	        if(totalCount%pageSize==0){
+	        	totalPage = totalCount/pageSize;
+	        }else{
+	        	totalPage = totalCount/pageSize + 1; 
+	        }
+	        pageBean.setTotalPage(totalPage);
+	        // 封装当前页记录
+	        int begin= (currPage - 1)*pageSize;
+	        List<Echeck> list = echeckDao.findByPage(begin, pageSize);
+	        pageBean.setList(list);	 
+			return pageBean;
 	}
 
 	

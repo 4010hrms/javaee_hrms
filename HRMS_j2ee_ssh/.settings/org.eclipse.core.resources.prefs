@@ -1,4 +1,10 @@
 eclipse.preferences.version=1
 encoding//src/com/action/DepartmentAction.java=GBK
 encoding//src/com/dao/impl/EmployeeDaoImpl.java=GBK
+<<<<<<< HEAD
 encoding//src/com/service/impl/DepartmentServiceImpl.java=UTF-8
+=======
+encoding//src/com/service/impl/DepartmentServiceImpl.java=GBK
+encoding//src/com/service/impl/EcheckServiceImpl.java=gbk
+encoding/<project>=UTF-8
+>>>>>>> branch 'master' of https://github.com/4010hrms/javaee_hrms.git

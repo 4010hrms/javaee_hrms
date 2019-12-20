@@ -8,8 +8,9 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 
 import com.dao.EcheckDao;
+
 import com.entity.Echeck;
-import com.entity.Employee;
+
 
 public class EcheckDaoImpl extends HibernateDaoSupport implements EcheckDao {
 
@@ -41,6 +42,26 @@ public class EcheckDaoImpl extends HibernateDaoSupport implements EcheckDao {
 	public Echeck Findbyid(Integer echeckid) {
 		// TODO Auto-generated method stub
 		return this.getHibernateTemplate().get(Echeck.class, echeckid);
+	}
+
+	@Override
+	public int findCount() {
+		// TODO Auto-generated method stub
+		String hql = "select count(*) from Echeck";
+		@SuppressWarnings("unchecked")
+		List<Long> list = this.getHibernateTemplate().find(hql);
+		if(list.size()>0){
+			return list.get(0).intValue();
+		}
+		return 0;
+	}
+
+	@Override
+	public List<Echeck> findByPage(int begin, int pageSize) {
+		// TODO Auto-generated method stub
+		DetachedCriteria criteria = DetachedCriteria.forClass(Echeck.class);
+		List<Echeck> list = this.getHibernateTemplate().findByCriteria(criteria,begin,pageSize);
+		return list;
 	}
 
 

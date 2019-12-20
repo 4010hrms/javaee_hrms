@@ -4,7 +4,12 @@ import java.util.List;
 
 import com.entity.Aleave;
 
+
 public interface AleaveDao {
+	
+	int findCount();
+	
+	List<Aleave> findByPage(int begin,int pageSize);
 	
 	void save(Aleave aleave);
 	
