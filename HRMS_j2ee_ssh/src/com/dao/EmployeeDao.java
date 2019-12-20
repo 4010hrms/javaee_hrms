@@ -11,6 +11,8 @@ public interface EmployeeDao {
 	int findCount();
 
 	List<Employee> findByPage(int begin, int pageSize);
+	
+	List<Employee> search(Employee employee);
 
 	void save(Employee employee);
 

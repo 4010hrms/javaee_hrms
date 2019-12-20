@@ -13,8 +13,10 @@
 			<result name="outlog" type="redirect">/index.jsp</result>
 			<result name="goEditEmployee">/jsp/employee/editEmployee.jsp</result>
 			<result name="editSuccess" type="redirect">employee_findAll.action</result>
-			<result name="deleteSuccess" type="redirect">employee_findAll.action</result>
-			
+			<result name="deleteSuccess" type="redirect">employee_findAll.action</result>	
+			<result name="pINPUT">/jsp/plogin.jsp</result>
+			<result name="pSUCCESS" type="redirect" >/jsp/mainpage.jsp</result>
+			<result name="result">/jsp/employee/resultEmployee.jsp</result>
 		</action>
 		<action name="department_*" class="departmentAction" method="{1}">
 			<result name="findAll">/jsp/department/listDepartment.jsp</result>
@@ -23,6 +25,7 @@
 			<result name="goEditDepartment">/jsp/department/editDepartment.jsp</result>
 			<result name="updateSuccess" type="redirect">department_findAll.action</result>
 			<result name="deleteSuccess" type="redirect">department_findAll.action</result>
+			<result name="result">/jsp/department/resultDepartment.jsp</result>
 		</action>
 		<action name="salary_*" class="salaryAction" method="{1}">
 			<result name="findAll">/jsp/salary/listSalary.jsp</result>

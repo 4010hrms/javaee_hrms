@@ -30,9 +30,9 @@
 		<div id="content">
 			<div class="post">
 				<B>关于人事考勤系统</B>
-				<p>应用SSH框架基于JSP的人事考勤管理平台，本平台面向两种种用户:员工和管理员</p>
+				<p>应用SSH框架基于JSP的人事考勤管理平台，本平台面向两种用户:员工和管理员</p>
 				<p>
-					员工可以维护自己的信息,进行考勤打、和查询工作任务和请假 <br />
+					员工可以维护自己的信息,进行考勤打卡和查询工作任务和请假 <br />
 				</p>
 				<p>
 					管理员可以对员工进行登录，信息,考勤,请假,工资,任务进行管理 <br />
@@ -48,8 +48,15 @@
 							<td align="center" style="font-size: 24px; color: #666">部门管理</td>
 						</tr>
 						<tr>
-							<td align="right"><a
-								href="department_goAddDepartment.action">添加部门</a></td>
+							<td align="right"><a href="department_goAddDepartment.action">添加部门</a></td>
+						</tr>
+						<tr>
+							<td align="right">
+							<form action="department_search" method="post">
+							<input type="text" name="dname" placeholder="请输入部门名称" required maxLength="20">
+							<input type="submit" class="button"value="查询"> 
+							</form>
+							</td>
 						</tr>
 					</table>
 					<br />
@@ -66,8 +73,7 @@
 								<tr>
 									<td align="center"><s:property value="#d.dname" /></td>
 									<td align="center">
-										<!-- 编辑部门update--> <a
-										href="department_findById.action?did=<s:property value="#d.did"/>">
+										<!-- 编辑部门update--> <a href="department_findById.action?did=<s:property value="#d.did"/>">
 											<img
 											src="${pageContext.request.contextPath }/images/mark.png" />
 									</a>

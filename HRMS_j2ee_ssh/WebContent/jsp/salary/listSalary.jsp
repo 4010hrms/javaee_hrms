@@ -54,9 +54,6 @@
 							<td align="right"><a href="salary_goAddSalary.action">添加薪资</a>
 							</td>
 						</tr>
-						<tr><td><s:textfield name="eid" />
-								<a href="salary_gofindSalary.action">添加薪资</a></td>
-						</tr>
 					</table>
 					<br />
 					<table border="0" width="900px">

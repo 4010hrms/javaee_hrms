@@ -10,6 +10,12 @@ public class PageBean<T> {
 	private int totalCount;
 	private List<T> list;
 
+	
+	@Override
+	public String toString() {
+		return "PageBean [currPage=" + currPage + ", pageSize=" + pageSize + ", totalPage=" + totalPage
+				+ ", totalCount=" + totalCount + ", list=" + list + "]";
+	}
 	public int getCurrPage() {
 		return currPage;
 	}

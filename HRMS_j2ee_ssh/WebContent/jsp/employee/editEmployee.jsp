@@ -14,6 +14,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang=en>
 <head>
+<s:head theme="xhtml"/> 
+<sx:head parseContent="true"/>
 <meta charset=UTF-8>
 <title>人事考勤</title>
 <link href="${pageContext.request.contextPath }/css/style.css"
@@ -34,9 +36,9 @@
 		<div id="content">
 			<div class="post">
 				<B>关于人事考勤系统</B>
-				<p>应用SSH框架基于JSP的人事考勤管理平台，本平台面向两种种用户:员工和管理员</p>
+				<p>应用SSH框架基于JSP的人事考勤管理平台，本平台面向两种用户:员工和管理员</p>
 				<p>
-					员工可以维护自己的信息,进行考勤打、和查询工作任务和请假 <br />
+					员工可以维护自己的信息,进行考勤打卡和查询工作任务和请假 <br />
 				</p>
 				<p>
 					管理员可以对员工进行登录，信息,考勤,请假,工资,任务进行管理 <br />

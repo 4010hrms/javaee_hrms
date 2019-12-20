@@ -5,7 +5,7 @@ import java.util.List;
 import com.entity.Department;
 import com.entity.PageBean;
 /**
- * ²¿ÃÅ¹ÜÀíµÄÒµÎñ²ã½Ó¿ÚÊµÏÖÀà
+ * ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½Ó¿ï¿½Êµï¿½ï¿½ï¿½ï¿½
  * @author hope
  */
 public interface DepartmentService {
@@ -21,6 +21,8 @@ public interface DepartmentService {
 	void delete(Department department);
 
 	List<Department> findAll();
+	
+	List<Department> search(Department department);
 
 
 }

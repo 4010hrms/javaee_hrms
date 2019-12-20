@@ -62,4 +62,14 @@ public class DepartmentDaoImpl extends HibernateDaoSupport implements Department
 		// TODO Auto-generated method stub
 		return this.getHibernateTemplate().find("from Department");
 	}
+
+	@Override
+	public List<Department> search(Department department) {
+		// TODO Auto-generated method stub
+		System.out.println("DepartmentDao:"+department.getDname());
+		List<Department> list = this.getHibernateTemplate().find("from Department b where b.dname like'%"+department.getDname()+"%'");
+		System.out.println("111111"+list.toString());
+
+		return list;
+	}
 }

@@ -26,7 +26,7 @@
 				<figcaption>
 					<h2>员工登录</h2>
 					<p>
-						员工登录窗口<br> <a href="${pageContext.request.contextPath}/login.jsp" title="1" data-gallery>点击进入</a>
+						员工登录窗口<br> <a href="${pageContext.request.contextPath}/jsp/plogin.jsp" title="1" data-gallery>点击进入</a>
 					</p>
 				</figcaption>
 			</figure>

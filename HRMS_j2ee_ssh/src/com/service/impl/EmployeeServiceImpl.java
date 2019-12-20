@@ -21,7 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	/**
-	 * ÒµÎñ²ãµÇÂ¼·½·¨
+	 * Òµï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 	 */
 	public Employee login(Employee employee) {
 		// TODO Auto-generated method stub
@@ -31,20 +31,20 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	/**
-	 * ÒµÎñ²ã²éÑ¯Ö¸¶¨Ò³Ãæ·½·¨
+	 * Òµï¿½ï¿½ï¿½ï¿½Ñ¯Ö¸ï¿½ï¿½Ò³ï¿½æ·½ï¿½ï¿½
 	 */
 	public PageBean<Employee> findByPage(Integer currPage) {
 		// TODO Auto-generated method stub
 		  PageBean<Employee> pageBean = new PageBean<Employee>();
-	        // ·â×°µ±Ç°Ò³Êý
+	        // ï¿½ï¿½×°ï¿½ï¿½Ç°Ò³ï¿½ï¿½
 	        pageBean.setCurrPage(currPage);
-	        // ·â×°Ã¿Ò³¼ÇÂ¼Êý
+	        // ï¿½ï¿½×°Ã¿Ò³ï¿½ï¿½Â¼ï¿½ï¿½
 	        int pageSize = 5;
 	        pageBean.setPageSize(pageSize);
-	        // ·â×°×Ü¼ÇÂ¼Êý
+	        // ï¿½ï¿½×°ï¿½Ü¼ï¿½Â¼ï¿½ï¿½
 	        int totalCount = employeeDao.findCount();
 	        pageBean.setTotalCount(totalCount);
-	        // ·â×°Ò³Êý
+	        // ï¿½ï¿½×°Ò³ï¿½ï¿½
 	        int totalPage;
 	        if(totalCount%pageSize==0){
 	        	totalPage = totalCount/pageSize;
@@ -52,7 +52,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	        	totalPage = totalCount/pageSize + 1; 
 	        }
 	        pageBean.setTotalPage(totalPage);
-	        // ·â×°µ±Ç°Ò³¼ÇÂ¼
+	        // ï¿½ï¿½×°ï¿½ï¿½Ç°Ò³ï¿½ï¿½Â¼
 	        int begin= (currPage - 1)*pageSize;
 	        List<Employee> list = employeeDao.findByPage(begin, pageSize);
 	        pageBean.setList(list);
@@ -61,7 +61,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	/**
-	 * ÒµÎñ²ãÌí¼ÓÔ±¹¤µÄ·½·¨
+	 * Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 	 */
 	public void save(Employee employee) {
 		// TODO Auto-generated method stub
@@ -71,7 +71,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	/**
-	 * ÒµÎñ²ã¸ù¾Ýid²éÑ¯Ô±¹¤µÄ·½·¨
+	 * Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½idï¿½ï¿½Ñ¯Ô±ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 	 */
 	public Employee findById(Integer eid) {
 		// TODO Auto-generated method stub
@@ -80,7 +80,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	
 	@Override
 	/**
-	 * ±à¼­Ô±¹¤µÄÒµÎñ²ãÊµÏÖ·½·¨
+	 * ï¿½à¼­Ô±ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½
 	 */
 	public void update(Employee employee) {
 		// TODO Auto-generated method stub
@@ -89,10 +89,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	/**
-	 * ÒµÎñ²ãÔ±¹¤É¾³ý
+	 * Òµï¿½ï¿½ï¿½Ô±ï¿½ï¿½É¾ï¿½ï¿½
 	 */
 	public void delete(Employee employee) {
 		// TODO Auto-generated method stub
 		employeeDao.delete(employee);
+	}
+
+	@Override
+	public List<Employee> search(Employee employee) {
+		
+		return employeeDao.search(employee);
 	}
 }

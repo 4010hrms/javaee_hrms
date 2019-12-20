@@ -20,4 +20,6 @@ public interface DepartmentDao {
 
 	List<Department> findAll();
 
+	List<Department> search(Department department);
+
 }

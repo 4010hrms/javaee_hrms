@@ -9,13 +9,12 @@ import com.entity.Department;
 import com.entity.PageBean;
 import com.service.DepartmentService;
 /**
- * ���Ź����ҵ���ʵ����
- * @author hope
+ * 锟斤拷锟脚癸拷锟斤拷锟揭碉拷锟斤拷实锟斤拷锟斤拷
  */
 
 @Transactional
 public class DepartmentServiceImpl implements DepartmentService {
-	// ע��serviceDao
+	// 注锟斤拷serviceDao
     private DepartmentDao departmentDao;
 
 	public void setDepartmentDao(DepartmentDao departmentDao) {
@@ -24,19 +23,19 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	@Override
 	/**
-	 * ��ҳ��ѯ���ŵķ���
+	 * 锟斤拷页锟斤拷询锟斤拷锟脚的凤拷锟斤拷
 	 */
 	public PageBean<Department> findByPage(Integer currPage) {
         PageBean<Department> pageBean = new PageBean<Department>();
-        // ��װ��ǰҳ��
+        // 锟斤拷装锟斤拷前页锟斤拷
         pageBean.setCurrPage(currPage);
-        // ��װÿҳ��¼��
+        // 锟斤拷装每页锟斤拷录锟斤拷
         int pageSize = 5;
         pageBean.setPageSize(pageSize);
-        // ��װ�ܼ�¼��
+        // 锟斤拷装锟杰硷拷录锟斤拷
         int totalCount = departmentDao.findCount();
         pageBean.setTotalCount(totalCount);
-        // ��װҳ��
+        // 锟斤拷装页锟斤拷
         int totalPage;
         if(totalCount%pageSize == 0){
         	totalPage = totalCount/pageSize;
@@ -44,7 +43,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         	totalPage = totalCount/pageSize+1; 
         }
         pageBean.setTotalPage(totalPage);
-        // ��װ��ǰҳ��¼
+        // 锟斤拷装锟斤拷前页锟斤拷录
         int begin= (currPage - 1)*pageSize;
         List<Department> list = departmentDao.findByPage(begin, pageSize);
         pageBean.setList(list);
@@ -53,7 +52,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	@Override
 	/**
-	 * ��Ӳ��ŵ�ҵ���ʵ��
+	 * 锟斤拷硬锟斤拷诺锟揭碉拷锟斤拷实锟斤拷
 	 */
 	public void save(Department department) {
 		// TODO Auto-generated method stub
@@ -62,7 +61,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	@Override
 	/**
-	 * ����id��ѯ���ŵ�ҵ���ʵ��
+	 * 锟斤拷锟斤拷id锟斤拷询锟斤拷锟脚碉拷业锟斤拷锟绞碉拷锟�
 	 */
 	public Department findById(Integer did) {
 		// TODO Auto-generated method stub
@@ -71,7 +70,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 	
 	@Override
 	/**
-	 * ���²��ŵ�ҵ���ʵ��
+	 * 锟斤拷锟铰诧拷锟脚碉拷业锟斤拷锟绞碉拷锟�
 	 */
 	public void update(Department department) {
 		// TODO Auto-generated method stub
@@ -80,7 +79,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	@Override
 	/**
-	 * ɾ�����ŵ�ҵ���ʵ��
+	 * 删锟斤拷锟斤拷锟脚碉拷业锟斤拷锟绞碉拷锟�
 	 */
 	public void delete(Department department) {
 		// TODO Auto-generated method stub
@@ -89,11 +88,15 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	@Override
 	/**
-	 * ҵ����ѯ���в���
+	 * 业锟斤拷锟斤拷询锟斤拷锟叫诧拷锟斤拷
 	 */
 	public List<Department> findAll() {
 		// TODO Auto-generated method stub
 		return departmentDao.findAll();
+	}
+	
+	public List<Department> search(Department department) {
+		return departmentDao.search(department);
 	}
 	
 
