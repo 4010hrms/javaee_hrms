@@ -70,7 +70,7 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 			return "pSUCCESS";
 		}
 	}
-	
+
 	/**
 	 * 员工登陆
 	 * @return
@@ -103,7 +103,7 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 		ActionContext.getContext().getSession().clear();
 		return "INPUT";
 	}
-	
+
 	public String search(){
 		System.out.println(employee.toString());
 		List<Employee> resultlist =  employeeService.search(employee);
@@ -152,7 +152,7 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 		if(employee.getEno().isEmpty()||employee.getEname().isEmpty()||employee.getUsername().isEmpty()||employee.getPassword().isEmpty()) {
 			this.addActionError("请完善信息再保存 ！");
 			// 查询所有部门
-			
+
 			return "goAddEmployee";
 		}
 
@@ -166,7 +166,7 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 	 */
 	public String findById(){
 		employee = employeeService.findById(employee.getEid());
-		System.out.print("所属部门："+employee.getEname());
+		System.out.print("名称："+employee.getEname());
 		// 查询所有部门
 		List<Department> list = departmentService.findAll();
 		// 把部门信息放入值栈中
@@ -180,14 +180,14 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 	 */
 	public String edit(){
 		// 查询所有部门
-				List<Department> list = departmentService.findAll();
-				// 把部门信息放入值栈中
-				System.out.print("所有部门："+list.size());
-				ActionContext.getContext().getValueStack().set("list", list);	
+		List<Department> list = departmentService.findAll();
+		// 把部门信息放入值栈中
+		System.out.print("所有部门："+list.size());
+		ActionContext.getContext().getValueStack().set("list", list);	
 		if(employee.getEno().isEmpty()||employee.getEname().isEmpty()||employee.getUsername().isEmpty()||employee.getPassword().isEmpty()) {
 			this.addActionError("请完善信息再保存 ！");
 			// 查询所有部门
-			
+
 			return "goEditEmployee";
 		}
 		employeeService.update(employee);
@@ -201,4 +201,36 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 		employeeService.delete(employee);
 		return "deleteSuccess";
 	}
+
+	public String personinfo(){
+		List<Department> list = departmentService.findAll();
+		// 把部门信息放入值栈中
+		System.out.print("所有部门："+list.size());
+		ActionContext.getContext().getValueStack().set("list", list);	
+		Employee person =  (Employee) ActionContext.getContext().getSession().get("existEmployee");
+		ActionContext.getContext().getSession().put("theperson", person);
+
+		return "personinfo";
+	}
+
+	public String personpassword(){
+		Employee person =  (Employee) ActionContext.getContext().getSession().get("existEmployee");
+		ActionContext.getContext().getSession().put("theperson", person);
+
+		return "personpass";
+	}
+
+	public String editpassword(){
+		if(employee.getPassword().isEmpty()) {
+			this.addActionError("请完善信息再保存 ");
+			return "personpassdone";
+		}
+		System.out.println("action"+employee.getPassword());
+		employeeService.update(employee);
+		this.addActionError("密码修改完成 ！");
+		Employee existEmployee = employeeService.findById(employee.getEid());
+		ActionContext.getContext().getSession().put("theperson", existEmployee);
+		return "personpassdone";
+	}
+
 }

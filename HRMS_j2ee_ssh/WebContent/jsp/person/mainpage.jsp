@@ -43,7 +43,7 @@
 			<div id="left">
 				<table border="0" width="900px">
 					<tr>
-						<td align="center" style="font-size: 24px; color: #666">员工之家欢迎您：<s:property
+						<td align="center" style="font-size: 24px; color: #666">员工之家-欢迎您：<s:property
 								value="#session.existEmployee.ename" /></td>
 					</tr>
 					<tr>
@@ -52,22 +52,26 @@
 						</td>
 					</tr>
 				</table>
-
 			</div>
-
+			<s:if test="#session.existEmployee==null">
+				<form action="employee_outlog" method="get" name="myform"></form>
+				<script type="text/javascript">
+						document.myform.submit();
+					</script>
+			</s:if>
 
 		</div>
 		<div id="sidebar">
 			<ul>
 				<li>
-					<h2>管理菜单</h2>
+					<h2>个人菜单</h2>
 					<ul>
-						<li><a href="department_findAll.action">部门管理</a></li>
-						<li><a href="employee_findAll.action">员工管理 </a></li>
-						<li><a href="echeck_findAll.action">考勤管理</a></li>
-						<li><a href="aleave_findAll.action">假条管理</a></li>
-						<li><a href="employee_findAll.action">工薪管理</a></li>
-						<li><a href="employee_findAll.action">任务管理</a></li>
+						<li><a href="employee_personinfo.action">个人信息</a></li>
+						<li><a href="employee_findAll.action">考勤信息 </a></li>
+						<li><a href="echeck_findAll.action">任务查看</a></li>
+						<li><a href="aleave_findAll.action">工薪查看</a></li>
+						<li><a href="employee_findAll.action">假条申请</a></li>
+						<li><a href="employee_personpassword.action">密码修改</a></li>
 						<li><a href="employee_outlog.action">退出登录</a></li>
 					</ul>
 				</li>

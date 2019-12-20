@@ -64,8 +64,7 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements EmployeeDao 
 	@Override
 	public void update(Employee employee) {
 		// TODO Auto-generated method stub
-		System.out.println("name: "+employee.getEname());
-		System.out.println("sex: "+employee.getSex());
+		System.out.println("dao: "+employee.getPassword());
 		this.getHibernateTemplate().update(employee);
 	}
 

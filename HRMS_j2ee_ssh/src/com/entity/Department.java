@@ -20,13 +20,6 @@ public class Department implements java.io.Serializable {
 	public Department() {
 	}
 
-	
-	
-	@Override
-	public String toString() {
-		return "Department [did=" + did + ", dname=" + dname + ", ddesc=" + ddesc + ", employees=" + employees + "]";
-	}
-
 
 
 	/** full constructor */

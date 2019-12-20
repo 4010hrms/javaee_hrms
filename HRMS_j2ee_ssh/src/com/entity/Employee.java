@@ -41,7 +41,11 @@ public class Employee implements java.io.Serializable {
 		this.password = password;
 	}
 
-	// Property accessors
+	@Override
+	public String toString() {
+		return "Employee [eid=" + eid + ", eno=" + eno + ", ename=" + ename + ", sex=" + sex + ", birthday=" + birthday
+				+ ", joinDate=" + joinDate + ", username=" + username + ", password=" + password + "]";
+	}
 
 	public Integer getEid() {
 		return this.eid;
