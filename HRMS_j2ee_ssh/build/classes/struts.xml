@@ -27,6 +27,25 @@
 			<result name="deleteSuccess" type="redirect">department_findAll.action</result>
 			<result name="result">/jsp/department/resultDepartment.jsp</result>
 		</action>
+		
+				<action name="echeck_*" class="echeckAction" method="{1}">
+			<result name="findAll">/jsp/echeck/listEcheck.jsp</result>
+			<result name="goAddEcheck">/jsp/echeck/addEcheck.jsp</result>
+			<result name="addSuccess" type="redirect">echeck_findAll.action</result>
+			<result name="goEditEcheck">/jsp/echeck/editEcheck.jsp</result>
+			<result name="editSuccess" type="redirect">echeck_findAll.action</result>
+			<result name="deleteSuccess" type="redirect">echeck_findAll.action</result>
+		</action>
+		
+		<action name="aleave_*" class="aleaveAction" method="{1}">
+			<result name="findAll">/jsp/aleave/listAleave.jsp</result>
+			<result name="goAddAleave">/jsp/aleave/addAleave.jsp</result>
+			<result name="addSuccess" type="redirect">aleave_findAll.action</result>
+			<result name="goEditAleave">/jsp/aleave/editAleave.jsp</result>
+			<result name="editSuccess" type="redirect">aleave_findAll.action</result>
+			<result name="deleteSuccess" type="redirect">aleave_findAll.action</result>
+			</action>
+			
 		<action name="salary_*" class="salaryAction" method="{1}">
 			<result name="findAll">/jsp/salary/listSalary.jsp</result>
 			<result name="goAddSalary">/jsp/salary/addSalary.jsp</result>
@@ -37,5 +56,6 @@
 			<result name="deleteSuccess" type="redirect">salary_findAll.action</result>
 			<result name="editSuccess" type="redirect">salary_findAll.action</result>
 		</action>
+		
 	</package>
 </struts>    

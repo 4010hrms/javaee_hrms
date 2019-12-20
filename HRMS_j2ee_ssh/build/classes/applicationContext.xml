@@ -44,6 +44,8 @@
 				<value>com/entity/Department.hbm.xml</value>
 				<value>com/entity/Employee.hbm.xml</value>
 				<value>com/entity/Salary.hbm.xml</value>
+				<value>com/entity/Echeck.hbm.xml</value>
+				<value>com/entity/Aleave.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -60,6 +62,15 @@
 		scope="prototype">
 		<property name="departmentService" ref="departmentService"></property>
 	</bean>
+		<bean id="echeckAction" class="com.action.EcheckAction"
+		scope="prototype">
+		<property name="echeckService" ref="echeckService"></property>
+	</bean>
+	
+	<bean id="aleaveAction" class="com.action.AleaveAction"
+		scope="prototype">
+		<property name="aleaveService" ref="aleaveService"></property>
+	</bean>
 	<!-- 配置业务层service -->
 	<bean id="employeeService" class="com.service.impl.EmployeeServiceImpl">
 		<property name="employeeDao" ref="employeeDao"></property>
@@ -70,6 +81,12 @@
 	<bean id="salaryService" class="com.service.impl.SalaryServiceImpl">
 		<property name="salaryDao" ref="salaryDao"></property>
 	</bean> 
+		<bean id="echeckService" class="com.service.impl.EcheckServiceImpl">
+		<property name="echeckDao" ref="echeckDao"></property>
+	</bean> 
+	<bean id="aleaveService" class="com.service.impl.AleaveServiceImpl">
+		<property name="aleaveDao" ref="aleaveDao"></property>
+	</bean> 
 	
 	<!-- 配置dao -->
 	<bean id="employeeDao" class="com.dao.impl.EmployeeDaoImpl">
@@ -79,6 +96,12 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
     <bean id="departmentDao" class="com.dao.impl.DepartmentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+		<bean id="echeckDao" class="com.dao.impl.EcheckDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="aleaveDao" class="com.dao.impl.AleaveDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 
