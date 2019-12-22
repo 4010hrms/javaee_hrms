@@ -10,11 +10,13 @@ import org.springframework.ui.Model;
 import com.entity.Department;
 import com.entity.Employee;
 import com.entity.PageBean;
+import com.entity.Salary;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.service.DepartmentService;
 import com.service.EmployeeService;
+import com.service.SalaryService;
 /**
  * 员工管理web层
  * 采用模型驱动
@@ -25,6 +27,7 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 
 	// 模型驱动使用的对象，自动注入employee的数据 
 	private Employee employee = new Employee();
+	private Salary salary =new Salary();
 
 	// 当前页数
 	private Integer currPage = 1;
@@ -32,9 +35,12 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 	// struts2整合spring,注入业务层
 	private EmployeeService employeeService;
 	private DepartmentService departmentService;
-
+	private SalaryService salaryService;
 	public void setCurrPage(Integer currPage) {
 		this.currPage = currPage;
+	}
+	public void setSalaryService(SalaryService salaryService) {
+		this.salaryService = salaryService;
 	}
 
 	public void setEmployeeService(EmployeeService employeeService) {
@@ -209,7 +215,8 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 		ActionContext.getContext().getValueStack().set("list", list);	
 		Employee person =  (Employee) ActionContext.getContext().getSession().get("existEmployee");
 		ActionContext.getContext().getSession().put("theperson", person);
-
+		salary =salaryService.findById(person.getEid());
+		ActionContext.getContext().getSession().put("theperson", salary);
 		return "personinfo";
 	}
 

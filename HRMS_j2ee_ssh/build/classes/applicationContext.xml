@@ -54,6 +54,7 @@
 	<!-- 配置action，action交由spring管理 -->
 	<bean id="employeeAction" class="com.action.EmployeeAction" scope="prototype">
 		<property name="employeeService" ref="employeeService"></property>
+		<property name="salaryService" ref="salaryService"></property>
 		<property name="departmentService" ref="departmentService"></property>
 	</bean>
 	<bean id="salaryAction" class="com.action.SalaryAction" scope="prototype">

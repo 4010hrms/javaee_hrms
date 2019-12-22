@@ -81,7 +81,15 @@ public class SalaryAction extends ActionSupport implements ModelDriven<Salary>{
 		return "goEditSalary";
 	}
 	public String findSalary(){
+		if(salary.getEid()==null) {
+			this.addActionError("请输入查询编号！");
+			return "findAll";	
+		}
 		salary =  salaryService.findById(salary.getEid());
+		if(salary.getEage()==0) {
+			this.addActionError("该员工不存在！");
+			return "findAll";	
+		}
 		ActionContext.getContext().getSession().put("salary", salary);
 		System.out.println(salary.toString());
 		return "gofindSalary";
@@ -90,13 +98,6 @@ public class SalaryAction extends ActionSupport implements ModelDriven<Salary>{
 	 * web层编辑员工方法
 	 */
 	public String edit(){
-		
-//		if() {
-//			this.addActionError("请完善信息再保存 ！");
-//			// 查询所有部门
-//			
-//			return "goEditEmployee";
-//		}
 		salaryService.update(salary);
 		return "editSuccess";
 	}

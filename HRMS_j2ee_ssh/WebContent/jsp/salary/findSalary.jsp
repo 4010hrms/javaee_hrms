@@ -48,6 +48,9 @@
 							<td align="center" style="font-size: 24px; color: #666">薪资管理</td>
 						</tr>
 						<tr>
+							<td align="center" style="font-size: 24px; color: #666">薪资添加</td>
+						</tr>
+						<tr>
 							<td align="right">
 							<form action="salary_findSalary" method="post">
 							<input type="text" name="eid" placeholder="请输入员工编号" required maxLength="20">

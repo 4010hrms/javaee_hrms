@@ -54,14 +54,16 @@
 								value="%{#session.theperson.sex}" /></li>
 						<li>所在部门：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:select name="department.did"
 								value="%{#session.theperson.department.did}" list="list"
-								listKey="did" listValue="dname" disabled="true" />
+								listKey="did" listValue="dname" disabled="true" /></li>
 						<li>出生日期：<sx:datetimepicker name="joinDate"
 								displayFormat="yyyy-MM-dd"
 								value="%{#session.theperson.joinDate}" disabled="true" /></li>
 						<li>入职时间：<sx:datetimepicker name="birthday"
 								displayFormat="yyyy-MM-dd"
-								value="%{#session.theperson.birthday}" disabled="true" />
-					</ul>
+								value="%{#session.theperson.birthday}" disabled="true" /></li>
+						<li>员工月薪：<s:property value="#session.theperson.esalary"/></li>
+					
+					</ul>													
 
 				</div>
 			</div>

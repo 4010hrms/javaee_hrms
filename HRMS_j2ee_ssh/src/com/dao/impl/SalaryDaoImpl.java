@@ -46,6 +46,11 @@ public class SalaryDaoImpl extends HibernateDaoSupport implements SalaryDao{
 	@Override
 	public Salary findById(Integer eid) {
 		// TODO Auto-generated method stub
+		if(this.getHibernateTemplate().get(Salary.class, eid)==null) {
+			Salary sar=new Salary();
+			sar.setEage(0);
+			return sar;
+		}
 		Salary em =this.getHibernateTemplate().get(Salary.class, eid);
 		System.out.println("查找到数据"+em.getEname());
 		return em;
