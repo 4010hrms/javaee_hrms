@@ -78,9 +78,7 @@
 			</s:iterator>
 		</tbody>
 					</table>
-					<br />
-			
-			
+					<br />	
 				</div>
 				<s:if test="#session.existEmployee==null">
 					<form action="employee_outlog" method="get" name="myform"></form>
