@@ -104,8 +104,8 @@
 				<li>
 					<h2>管理菜单</h2>
 					<ul>
-						<li><a href="employee_personinfo.action">个人信息</a></li>
-						<li><a href="employee_findAll.action">考勤信息 </a></li>
+					<li><a href="employee_personinfo.action">个人信息</a></li>
+						<li><a href="echeck_personecheck.action">考勤信息 </a></li>
 						<li><a href="echeck_findAll.action">任务查看</a></li>
 						<li><a href="aleave_findAll.action">工薪查看</a></li>
 							<li><a href="aleave_personaleave.action">假条申请</a></li>

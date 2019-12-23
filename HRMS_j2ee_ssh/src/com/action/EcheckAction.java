@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import com.entity.Echeck;
+import com.entity.Employee;
 import com.entity.PageBean;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -63,6 +64,23 @@ public class EcheckAction extends ActionSupport implements ModelDriven<Echeck> {
 		ActionContext.getContext().getSession().put("resultlist", resultlist);
 		System.out.println("resultlist----->"+resultlist.toString());
 		return "result";
+	}
+	
+	public String personecheck() {
+		Employee person =  (Employee) ActionContext.getContext().getSession().get("existEmployee");
+		int id=person.getEid();
+		List<Echeck> list=echeckService.Findall();
+		for(int i=0;i<list.size();i++) {
+			Echeck temp=list.get(i);
+			System.out.println("temp的i："+temp.getEid());
+			if(temp.getEid()!=id) {
+				list.remove(temp);
+				i--;
+			}
+			ActionContext.getContext().getSession().put("personlist", list);
+		}
+		return "personecheck";
+		
 	}
 	
 	public String edit(){
