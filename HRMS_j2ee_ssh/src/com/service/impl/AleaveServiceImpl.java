@@ -77,4 +77,10 @@ public class AleaveServiceImpl implements AleaveService {
 			return pageBean;
 	}
 
+	@Override
+	public List<Aleave> search(Aleave aleave) {
+		// TODO Auto-generated method stub
+		return aleaveDao.search(aleave);
+	}
+
 }

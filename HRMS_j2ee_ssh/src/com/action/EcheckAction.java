@@ -55,13 +55,21 @@ public class EcheckAction extends ActionSupport implements ModelDriven<Echeck> {
 		return "goEditEcheck";
 	}
 	public String search(){
-		echeck =  echeckService.Findbyid(echeck.getEcheckid());
-		ActionContext.getContext().getSession().put("echeck", echeck);
-		System.out.println("!!!!!!!!"+echeck.toString());
+		if(echeck.getEcheckid()==null) {
+			this.addActionError("请输入查询编号！");
+			return "findAll";
+		}
+		List<Echeck> resultlist=echeckService.search(echeck);
+		ActionContext.getContext().getSession().put("resultlist", resultlist);
+		System.out.println("resultlist----->"+resultlist.toString());
 		return "result";
 	}
 	
 	public String edit(){
+		String str=echeck.getEid().toString();
+		if(str.isEmpty()) {
+			this.addActionError("员工编号不能为空！");
+		}
 		echeckService.update(echeck);
 		return "editSuccess";
 	}

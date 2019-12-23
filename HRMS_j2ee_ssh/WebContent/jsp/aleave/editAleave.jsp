@@ -63,7 +63,7 @@
 		<table style="font-size: :16px">
 			<tr>
 				<td align="right">员工编号：</td>
-				<td><s:textfield value="%{model.eid}" name="eid" /></td>
+				<td><s:textfield value="%{model.eid}" name="eid"  disabled="true"/></td>
 			</tr>
 			
 			<tr>
@@ -85,7 +85,7 @@
 		
 			<tr>
 			<td align="right">理由：</td>
-				<td><s:textfield value="%{model.reason}" name="reason" /></td>
+				<td><s:textfield value="%{model.reason}" name="reason" disable = "true"/></td>
 			</tr>
 			
 		</table>

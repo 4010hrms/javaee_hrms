@@ -51,6 +51,7 @@
 			<result name="editSuccess" type="redirect">aleave_findAll.action</result>
 			<result name="deleteSuccess" type="redirect">aleave_findAll.action</result>
 			<result name="result">/jsp/aleave/resultAleave.jsp</result>
+			<result name="personaleave">/jsp/person/personaleave.jsp</result>
 			</action>
 			
 		<action name="salary_*" class="salaryAction" method="{1}">

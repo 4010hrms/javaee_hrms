@@ -80,6 +80,12 @@ public class EcheckServiceImpl implements EcheckService {
 			return pageBean;
 	}
 
+	@Override
+	public List<Echeck> search(Echeck echeck) {
+		// TODO Auto-generated method stub
+		return echeckDao.search(echeck);
+	}
+
 	
 }
 

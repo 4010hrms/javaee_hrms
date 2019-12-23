@@ -66,6 +66,7 @@
 			
 			<tr>
 				<td align="right">开始时间：</td>
+				
 				<td><s:textfield value="2019-01-01" name="ktime" /></td>
 			</tr>
 			<tr>

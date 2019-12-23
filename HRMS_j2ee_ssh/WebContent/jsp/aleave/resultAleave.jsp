@@ -48,7 +48,7 @@
 				<div align="center">
 					<table border="0" width="900px">
 						<tr>
-							<td align="center" style="font-size: 24px; color: #666">考勤管理</td>
+							<td align="center" style="font-size: 24px; color: #666">假条管理</td>
 						</tr>
 						<tr>
 							<td align="right">
@@ -65,29 +65,29 @@
 							<tr>
 								<th>假条编号</th>
 								<th>员工编号</th>
-								<th>上班时间</th>
-								<th>下班时间</th>
+								<th>开始时间</th>
+								<th>结束时间</th>
 								<th>理由</th>
 								<th>编辑</th>
 								<th>删除</th>
 							</tr>
 						</thead>
 						<tbody>
-			<s:iterator value="#session.aleave" var="aleave">
+			<s:iterator value="#session.resultlist" var="resultlist">
 				<tr>
-					<td align="center"><s:property value="#aleave.aleaveid" /></td>
-					<td align="center"><s:property value="#aleave.eid" /></td>
-					<td align="center"><s:date format="yyyy-MM-dd hh:mm:ss" name="#aleave.ktime" /></td>
-					<td align="center"><s:date format="yyyy-MM-dd hh:mm:ss" name="#aleave.jtime"/></td>
-					<td align="center"><s:property value="#aleave.reason" /></td>
+					<td align="center"><s:property value="#resultlist.aleaveid" /></td>
+					<td align="center"><s:property value="#resultlist.eid" /></td>
+					<td align="center"><s:date format="yyyy-MM-dd" name="#resultlist.ktime" /></td>
+					<td align="center"><s:date format="yyyy-MM-dd" name="#resultlist.jtime"/></td>
+					<td align="center"><s:property value="#resultlist.reason" /></td>
 				
 					<td align="center">
-					    <a href="aleave_findByid.action?aleaveid=<s:property value="#aleave.aleaveid"/>">
+					    <a href="aleave_findByid.action?aleaveid=<s:property value="#resultlist.aleaveid"/>">
 					       <img src="${pageContext.request.contextPath }/images/mark.png" />
 					    </a>
 					</td>
 					<td align="center">
-					    <a href="aleave_delete.action?aleaveid=<s:property value="#aleave.aleaveid"/>">
+					    <a href="aleave_delete.action?aleaveid=<s:property value="#resultlist.aleaveid"/>">
 					       <img src="${pageContext.request.contextPath }/images/trash.gif" />
 					    </a>
 					</td>

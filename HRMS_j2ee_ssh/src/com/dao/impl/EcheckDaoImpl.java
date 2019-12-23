@@ -8,7 +8,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 
 import com.dao.EcheckDao;
-
+import com.entity.Aleave;
 import com.entity.Echeck;
 
 
@@ -61,6 +61,16 @@ public class EcheckDaoImpl extends HibernateDaoSupport implements EcheckDao {
 		// TODO Auto-generated method stub
 		DetachedCriteria criteria = DetachedCriteria.forClass(Echeck.class);
 		List<Echeck> list = this.getHibernateTemplate().findByCriteria(criteria,begin,pageSize);
+		return list;
+	}
+
+	@Override
+	public List<Echeck> search(Echeck echeck) {
+		// TODO Auto-generated method stub
+		List<Echeck> list = this.getHibernateTemplate().find("from Echeck b where b.echeckid like'%"+echeck.getEcheckid()+"%'");
+		
+		System.out.println("模糊查询假条"+list.toString());
+		
 		return list;
 	}
 

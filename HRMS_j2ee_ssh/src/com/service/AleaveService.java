@@ -18,5 +18,7 @@ public interface AleaveService {
 	List<Aleave> Findall();
 	
 	Aleave Findbyid(Integer aleaveid);
+	
+	List<Aleave> search(Aleave aleave);
 
 }

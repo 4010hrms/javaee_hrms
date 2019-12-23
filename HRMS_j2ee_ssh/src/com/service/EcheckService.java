@@ -20,6 +20,8 @@ public interface EcheckService {
 	List<Echeck> Findall();
 	
 	Echeck Findbyid(Integer echeckid);
+	
+	List<Echeck> search(Echeck echeck);
 
 
 }

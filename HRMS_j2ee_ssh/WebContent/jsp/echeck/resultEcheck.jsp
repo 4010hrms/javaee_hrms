@@ -73,7 +73,7 @@
 							</tr>
 						</thead>
 						<tbody>
-			<s:iterator value="#session.echeck" var="echeck">
+			<s:iterator value="#session.resultlist" var="echeck">
 				<tr>
 					<td align="center"><s:property value="#echeck.echeckid" /></td>
 					<td align="center"><s:property value="#echeck.eid" /></td>

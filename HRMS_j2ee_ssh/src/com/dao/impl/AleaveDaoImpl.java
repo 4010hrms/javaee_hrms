@@ -7,6 +7,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.dao.AleaveDao;
 import com.entity.Aleave;
+import com.entity.Employee;
 
 
 public class AleaveDaoImpl extends HibernateDaoSupport implements AleaveDao {
@@ -60,6 +61,16 @@ public class AleaveDaoImpl extends HibernateDaoSupport implements AleaveDao {
 		// TODO Auto-generated method stub
 		DetachedCriteria criteria = DetachedCriteria.forClass(Aleave.class);
 		List<Aleave> list = this.getHibernateTemplate().findByCriteria(criteria,begin,pageSize);
+		return list;
+	}
+
+	@Override
+	public List<Aleave> search(Aleave aleave) {
+		// TODO Auto-generated method stub
+		List<Aleave> list = this.getHibernateTemplate().find("from Aleave b where b.aleaveid like'%"+aleave.getAleaveid()+"%'");
+		System.out.println("eid----》"+aleave.getEid());
+		System.out.println("模糊查询假条"+list.toString());
+
 		return list;
 	}
 

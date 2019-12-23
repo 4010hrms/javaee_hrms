@@ -21,5 +21,7 @@ public interface AleaveDao {
 	
 	Aleave Findbyid(Integer aleaveid);
 	
+	List<Aleave> search(Aleave aleave);
+	
 
 }
