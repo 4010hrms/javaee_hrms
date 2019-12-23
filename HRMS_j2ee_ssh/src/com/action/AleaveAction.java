@@ -76,18 +76,16 @@ public class AleaveAction extends ActionSupport implements ModelDriven<Aleave> {
 		return "result";
 	}
 	
-//	public String personaleave() {
-//		
-//		List<Aleave> list=aleaveService.Findall();
-//		ActionContext.getContext().getValueStack().set("list", list);
-//		Employee person =  (Employee) ActionContext.getContext().getSession().get("existEmployee");
-//		
-//		List<Aleave> personaleavelist=aleaveService.Findbyid();
-//		ActionContext.getContext().getSession().put("theperson", person);
-//		
-//		return "personaleave";
-//		
-//	}
+	public String personaleave() {	
+		Employee person =  (Employee) ActionContext.getContext().getSession().get("existEmployee");
+		ActionContext.getContext().getSession().put("theperson", person);
+		return "personaleave";
+	}
+	public String personsavealeave(){
+		
+		aleaveService.save(aleave);
+		return "personaddSuccess";
+	}
 	
 	public String edit(){
 		aleaveService.update(aleave);

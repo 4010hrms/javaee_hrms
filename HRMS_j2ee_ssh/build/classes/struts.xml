@@ -47,6 +47,7 @@
 			<result name="findAll">/jsp/aleave/listAleave.jsp</result>
 			<result name="goAddAleave">/jsp/aleave/addAleave.jsp</result>
 			<result name="addSuccess" type="redirect">aleave_findAll.action</result>
+			<result name="personaddSuccess">/jsp/person/mainpage.jsp</result>
 			<result name="goEditAleave">/jsp/aleave/editAleave.jsp</result>
 			<result name="editSuccess" type="redirect">aleave_findAll.action</result>
 			<result name="deleteSuccess" type="redirect">aleave_findAll.action</result>

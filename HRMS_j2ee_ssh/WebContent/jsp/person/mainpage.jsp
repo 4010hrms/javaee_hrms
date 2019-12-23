@@ -70,7 +70,7 @@
 						<li><a href="employee_findAll.action">考勤信息 </a></li>
 						<li><a href="echeck_findAll.action">任务查看</a></li>
 						<li><a href="aleave_findAll.action">工薪查看</a></li>
-						<li><a href="employee_findAll.action">假条申请</a></li>
+						<li><a href="aleave_personaleave.action">假条申请</a></li>
 						<li><a href="employee_personpassword.action">密码修改</a></li>
 						<li><a href="employee_outlog.action">退出登录</a></li>
 					</ul>
