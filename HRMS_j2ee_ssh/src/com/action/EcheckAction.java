@@ -79,8 +79,7 @@ public class EcheckAction extends ActionSupport implements ModelDriven<Echeck> {
 			}
 			ActionContext.getContext().getSession().put("personlist", list);
 		}
-		return "personecheck";
-		
+		return "personecheck";		
 	}
 	
 	public String edit(){

@@ -7,6 +7,7 @@ public class Task implements java.io.Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private Integer tid;
+	private  Integer eid;
 	private String tno;
 	private String tname;
 	private String taskname;
@@ -22,7 +23,7 @@ public class Task implements java.io.Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Task [tid=" + tid + ", tno=" + tno + ", tname=" + tname + ", taskname=" + taskname + ", tcontent=" + tcontent + ", employees=" + employees
+		return "Task [tid=" + tid + ", eid=" + eid+", tno=" + tno + ", tname=" + tname + ", taskname=" + taskname + ", tcontent=" + tcontent + ", employees=" + employees
 				+ "]";
 	}
 	/** full constructor */
@@ -41,6 +42,12 @@ public class Task implements java.io.Serializable{
 	}
 	public void setTid(Integer tid) {
 		this.tid = tid;
+	}
+	public Integer getEid() {
+		return this.eid;
+	}
+	public void setEid(Integer eid) {
+		this.eid = eid;
 	}
 
 	public String getTno() {

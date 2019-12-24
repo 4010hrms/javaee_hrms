@@ -66,6 +66,7 @@
 										<tr>
 											<th width="300">任务编号</th>
 											<th width="200">执行员工</th>
+											<th width="200">员工编号</th>
 											<th width="200">任务名称</th>
 											<th width="500">任务内容</th>
 											<th width="300">编辑</th>
@@ -77,6 +78,7 @@
 											<tr>
 												<td align="center"><s:property value="#t.tno" /></td>
 												<td align="center"><s:property value="#t.tname" /></td>
+												<td align="center"><s:property value="#t.eid" /></td>
 												<td align="center"><s:property value="#t.taskname" /></td>
 												<td align="center"><s:property value="#t.tcontent" /></td>
 												<td align="center">
