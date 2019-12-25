@@ -6,8 +6,25 @@ public class Salary {
 	private String  esex;
 	private int     eage;
 	private double esalary;
+	private int eno;
+	public int getEno() {
+		return eno;
+	}
+	public void setEno(int eno) {
+		this.eno = eno;
+	}
 	public Salary() {
 		
+	}
+	
+	public Salary(Integer eid, String ename, String esex, int eage, double esalary, int eno) {
+		super();
+		this.eid = eid;
+		this.ename = ename;
+		this.esex = esex;
+		this.eage = eage;
+		this.esalary = esalary;
+		this.eno = eno;
 	}
 	public Salary(Integer eid, String ename, String esex, int eage, double esalary) {
 		super();

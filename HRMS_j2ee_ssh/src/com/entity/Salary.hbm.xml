@@ -4,12 +4,13 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="com.entity.Salary" table="salary">
-		<id name="eid" column="eid">
+		<id name="eno" column="eno">
 			<generator class="native"></generator>		
 		</id>
 		<property name="ename" column="ename" length="20"></property>
 		<property name="esex" column="esex" length="20"></property>
 		<property name="eage"  column="eage" ></property>
 		<property name="esalary" column="esalary" ></property>
+		<property name="eid" column="eid" ></property>
 	</class>
 </hibernate-mapping>
