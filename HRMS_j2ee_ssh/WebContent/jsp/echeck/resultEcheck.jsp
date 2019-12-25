@@ -77,8 +77,8 @@
 				<tr>
 					<td align="center"><s:property value="#echeck.echeckid" /></td>
 					<td align="center"><s:property value="#echeck.eid" /></td>
-					<td align="center"><s:date format="yyyy-MM-dd hh:mm:ss" name="#echeck.btime" /></td>
-					<td align="center"><s:date format="yyyy-MM-dd hh:mm:ss" name="#echeck.etime"/></td>
+					<td align="center"><s:date format="yyyy-MM-dd HH:mm:ss" name="#echeck.btime" /></td>
+					<td align="center"><s:date format="yyyy-MM-dd HH:mm:ss" name="#echeck.etime"/></td>
 					<td align="center"><s:property value="#echeck.state" /></td>
 				
 					<td align="center">

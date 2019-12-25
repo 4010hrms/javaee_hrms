@@ -15,6 +15,8 @@
 <html lang=en>
 <head>
 <meta charset=UTF-8>
+<s:head theme="xhtml"/> 
+<sx:head parseContent="true" extraLocales="en"/>
 <title>人事考勤</title>
 <link href="${pageContext.request.contextPath }/css/style.css"
 	rel="stylesheet" type="text/css" media="screen" />
@@ -67,11 +69,13 @@
 			<tr>
 				<td align="right">开始时间：</td>
 				
-				<td><s:textfield value="2019-01-01" name="ktime" /></td>
+				<td><sx:datetimepicker name="ktime"
+										displayFormat="yyyy-MM-dd" value="%{'today'}"  language="en"/></td>
 			</tr>
 			<tr>
 				<td align="right">结束时间：</td>
-				<td><s:textfield  value="2019-01-01" name="jtime" /></td>
+				<td><sx:datetimepicker name="jtime"
+										displayFormat="yyyy-MM-dd" value="%{'today'}"  language="en"/></td>
 			</tr>
 			<tr>
 			<td align="right">理由：</td>

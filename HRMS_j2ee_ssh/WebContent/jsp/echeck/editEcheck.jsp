@@ -51,7 +51,7 @@
 				<div align="center">
 					<table border="0" width="900px">
 						<tr>
-							<td align="center" style="font-size: 24px; color: #666">员工修改</td>
+							<td align="center" style="font-size: 24px; color: #666">考勤记录修改</td>
 						</tr>
 						<tr>
 							<td><span style="color: red"><s:actionerror /></span></td>
