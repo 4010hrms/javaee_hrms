@@ -6,6 +6,7 @@
 			<generator class="native"></generator>
 		</id>
 		<property name="tno" column="tno" length="20"/>
+		<property name="eid" column="eid" length="20"/>
 		<property name="tname" column="tname" length="20"/>
 		<property name="taskname" column="taskname" length="20"/>
 		<property name="tcontent" column="tcontent" length="100"/>

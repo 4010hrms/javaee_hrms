@@ -75,6 +75,7 @@
 			<result name="updateSuccess" type="redirect">task_findAll.action</result>
 			<result name="deleteSuccess" type="redirect">task_findAll.action</result>
 			<result name="result">/jsp/task/resultTask.jsp</result>
+			<result name="persontask">/jsp/person/persontask.jsp</result>
 		</action>
 	</package>
 </struts>    

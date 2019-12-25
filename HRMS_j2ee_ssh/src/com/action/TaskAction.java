@@ -3,6 +3,8 @@ package com.action;
 import java.util.List;
 
 import com.entity.Task;
+import com.entity.Echeck;
+import com.entity.Employee;
 import com.entity.PageBean;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -49,6 +51,11 @@ public class TaskAction extends ActionSupport implements ModelDriven<Task>{
 
 
 	public String saveTask(){
+		String str=task.getEid().toString();
+		if(str.isEmpty()) {
+			this.addActionError("员工编号不能为空！");
+			return "goAddTask";
+		}
 		if (task.getTno().isEmpty()) {
 			this.addActionError("任务编号不能为空！");
 			return "goAddTask";
@@ -57,6 +64,7 @@ public class TaskAction extends ActionSupport implements ModelDriven<Task>{
 			this.addActionError("执行员工不能为空！");
 			return "goAddTask";
 		}
+		
 		if (task.getTaskname().isEmpty()) {
 			this.addActionError("任务名称不能为空！");
 			return "goAddTask";
@@ -75,14 +83,20 @@ public class TaskAction extends ActionSupport implements ModelDriven<Task>{
 	}
 
 	public String update(){
+		String str=task.getEid().toString();
+		if(str.isEmpty()) {
+			this.addActionError("员工编号不能为空！");
+			return "goEditTask";
+		}
 		if (task.getTno().isEmpty()) {
 			this.addActionError("任务编号不能为空！");
 			return "goEditTask";
 		}
-			if (task.getTname().isEmpty()) {
+		if (task.getTname().isEmpty()) {
 			this.addActionError("执行员工不能为空！");
 			return "goEditTask";
 		}
+		
 		if (task.getTaskname().isEmpty()) {
 			this.addActionError("任务名称不能为空！");
 			return "goEditTask";
@@ -99,5 +113,20 @@ public class TaskAction extends ActionSupport implements ModelDriven<Task>{
 		task = taskService.findById(task.getTid());
 		taskService.delete(task);
 		return "deleteSuccess";
+	}
+	public String persontask() {
+		Employee person =  (Employee) ActionContext.getContext().getSession().get("existEmployee");
+		int id=person.getEid();
+		List<Task> list=taskService.findAll();
+		for(int i=0;i<list.size();i++) {
+			Task temp=list.get(i);
+			System.out.println("temp的i："+temp.getEid());
+			if(temp.getEid()!=id) {
+				list.remove(temp);
+				i--;
+			}
+			ActionContext.getContext().getSession().put("personlist", list);
+		}
+		return "persontask";		
 	}
 }

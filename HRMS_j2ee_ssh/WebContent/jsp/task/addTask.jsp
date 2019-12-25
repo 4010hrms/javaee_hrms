@@ -64,6 +64,10 @@
 							<td><s:textfield name="tname" /></td>
 							</tr>
 							<tr>
+							<td width="30%" align="right">员工编号：</td>
+							<td><s:textfield name="eid" /></td>
+							</tr>
+							<tr>
 							<td width="30%" align="right">任务名称：</td>
 							<td><s:textfield name="taskname" /></td>
 							</tr>
