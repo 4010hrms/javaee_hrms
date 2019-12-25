@@ -25,7 +25,7 @@ public class SalaryServiceImpl implements SalaryService {
 		  PageBean<Salary> pageBean = new PageBean<Salary>();
 	     
 	        pageBean.setCurrPage(currPage);
-	        int pageSize = 5;
+	        int pageSize = 10;
 	        pageBean.setPageSize(pageSize);
 	     
 	        int totalCount = salaryDao.findCount();

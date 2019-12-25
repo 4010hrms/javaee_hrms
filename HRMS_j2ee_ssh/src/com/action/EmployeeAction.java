@@ -78,7 +78,7 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 	}
 
 	/**
-	 * 员工登陆
+	 * 管理员登陆
 	 * @return
 	 */
 	public String login(){
@@ -90,13 +90,18 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 			this.addActionError("用户名或密码错误！");
 			System.out.println("action查找失败");
 			return "INPUT";
-		}else{
+		}else if(Integer.parseInt(existEmployee.getEno())<=10){
 			// 登录成功
 			System.out.println("Action查找成功");
 			ActionContext.getContext().getSession().put("existEmployee", existEmployee);
 			return "SUCCESS";
+		}else {
+			this.addActionError("该账户没有权限！");
+			System.out.println("action查找失败");
+			return "INPUT";
 		}
 	}
+
 
 	/**
 	 * 退出登陆
@@ -216,7 +221,7 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 		Employee person =  (Employee) ActionContext.getContext().getSession().get("existEmployee");
 		ActionContext.getContext().getSession().put("theperson", person);
 		salary =salaryService.findById(person.getEid());
-		ActionContext.getContext().getSession().put("theperson", salary);
+		ActionContext.getContext().getSession().put("salary", salary);
 		return "personinfo";
 	}
 

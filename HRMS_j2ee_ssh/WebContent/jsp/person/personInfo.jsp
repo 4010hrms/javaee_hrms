@@ -45,25 +45,27 @@
 
 			</div>
 			<div id="left">
-				<div align="center">
+				<div align="left">
 					<br /> <br />
 
 					<ul>
 						<li>员工编号：<s:property value="%{#session.theperson.eno}" />--<s:property
 								value="%{#session.theperson.ename}" />--<s:property
 								value="%{#session.theperson.sex}" /></li>
-						<li>所在部门：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:select name="department.did"
+						<li>所在部门：<s:select
+								name="department.did"
 								value="%{#session.theperson.department.did}" list="list"
 								listKey="did" listValue="dname" disabled="true" /></li>
-						<li>出生日期：<sx:datetimepicker name="joinDate"
-								displayFormat="yyyy-MM-dd"
-								value="%{#session.theperson.joinDate}" disabled="true" /></li>
-						<li>入职时间：<sx:datetimepicker name="birthday"
+						<li>出生时间：<sx:datetimepicker name="birthday"
 								displayFormat="yyyy-MM-dd"
 								value="%{#session.theperson.birthday}" disabled="true" /></li>
-						<li>员工月薪：<s:property value="#session.theperson.esalary"/></li>
-					
-					</ul>													
+						<li>入职日期：<sx:datetimepicker name="joinDate"
+								displayFormat="yyyy-MM-dd"
+								value="%{#session.theperson.joinDate}" disabled="true" /></li>
+
+						<li>员工月薪：<s:property value="#session.salary.esalary" /></li>
+
+					</ul>
 
 				</div>
 			</div>

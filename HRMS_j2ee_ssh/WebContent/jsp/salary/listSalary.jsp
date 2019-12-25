@@ -67,7 +67,7 @@
 					<table border="0" width="900px">
 						<thead>
 							<tr>
-								<th>员工编号</th>
+								<th>工薪编号</th>
 								<th>员工姓名</th>
 								<th>员工性别</th>
 								<th>员工年龄</th>

@@ -57,7 +57,7 @@ public class AleaveServiceImpl implements AleaveService {
 	        // 封装当前页数
 	        pageBean.setCurrPage(currPage);
 	        // 封装每页记录数
-	        int pageSize = 5;
+	        int pageSize = 10;
 	        pageBean.setPageSize(pageSize);
 	        // 封装总记录数
 	        int totalCount = aleaveDao.findCount();
