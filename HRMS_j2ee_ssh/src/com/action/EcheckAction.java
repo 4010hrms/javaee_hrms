@@ -25,6 +25,22 @@ public class EcheckAction extends ActionSupport implements ModelDriven<Echeck> {
 		this.currPage = currPage;
 	}
 	
+	public Echeck getEcheck() {
+		return echeck;
+	}
+
+	public Integer getCurrPage() {
+		return currPage;
+	}
+
+	public EcheckService getEcheckService() {
+		return echeckService;
+	}
+
+	public void setEcheck(Echeck echeck) {
+		this.echeck = echeck;
+	}
+
 	private EcheckService echeckService;
 	
 	@Override
@@ -84,10 +100,7 @@ public class EcheckAction extends ActionSupport implements ModelDriven<Echeck> {
 	}
 	
 	public String edit(){
-		String str=echeck.getEid().toString();
-		if(str.isEmpty()) {
-			this.addActionError("员工编号不能为空！");
-		}
+		
 		echeckService.update(echeck);
 		return "editSuccess";
 	}

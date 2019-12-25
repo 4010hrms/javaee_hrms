@@ -75,7 +75,7 @@
 			</tr>
 			<tr>
 			<td align="right">理由：</td>
-				<td><s:textfield  name="reason" /></td>
+				<td><s:textarea  name="reason" /></td>
 			</tr>
 			
 		</table>

@@ -21,6 +21,7 @@
 	</div>
 	<div style="padding-top: 8%;">
 		<div id="works" class=" clearfix grid">
+		
 			<figure class="effect-oscar  wowload fadeIn">
 				<img src="${pageContext.request.contextPath}/images/BGD.jpg" alt="img01"/>
 				<figcaption>

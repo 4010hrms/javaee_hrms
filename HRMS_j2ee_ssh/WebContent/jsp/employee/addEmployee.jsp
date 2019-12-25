@@ -14,6 +14,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang=en>
 <head>
+<s:head theme="xhtml"/> 
+<sx:head parseContent="true" extraLocales="en"/>
 <meta charset=UTF-8>
 <title>人事考勤</title>
 <link href="${pageContext.request.contextPath }/css/style.css"
@@ -76,12 +78,12 @@
 							<tr>
 								<td align="right">出生日期：</td>
 								<td><sx:datetimepicker name="birthday"
-										displayFormat="yyyy-MM-dd" value="%{'1990-01-01'}" /></td>
+										displayFormat="yyyy-MM-dd" value="%{'1990-01-01'}" language="en"/></td>
 							</tr>
 							<tr>
 								<td align="right">入职日期：</td>
 								<td><sx:datetimepicker name="joinDate"
-										displayFormat="yyyy-MM-dd" value="%{'today'}" /></td>
+										displayFormat="yyyy-MM-dd" value="%{'today'}" language="en"/></td>
 							</tr>
 							<tr>
 								<td align="right">用户名：</td>

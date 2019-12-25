@@ -15,6 +15,8 @@
 <html lang=en>
 <head>
 <meta charset=UTF-8>
+<s:head theme="xhtml"/> 
+<sx:head parseContent="true" extraLocales="en"/>
 <title>人事考勤</title>
 <link href="${pageContext.request.contextPath }/css/style.css"
 	rel="stylesheet" type="text/css" media="screen" />
@@ -63,7 +65,7 @@
 		<table style="font-size: :16px">
 			<tr>
 				<td align="right">员工编号：</td>
-				<td><s:textfield value="%{model.eid}" name="eid" disabled="true"/></td>
+				<td><s:textfield value="%{model.eid}" name="eid" readonly="true"/></td>
 			</tr>
 			<tr>
 				<td align="right">上班时间：</td>
