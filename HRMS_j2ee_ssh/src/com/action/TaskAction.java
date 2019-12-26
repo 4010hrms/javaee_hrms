@@ -3,7 +3,6 @@ package com.action;
 import java.util.List;
 
 import com.entity.Task;
-import com.entity.Echeck;
 import com.entity.Employee;
 import com.entity.PageBean;
 import com.opensymphony.xwork2.ActionContext;

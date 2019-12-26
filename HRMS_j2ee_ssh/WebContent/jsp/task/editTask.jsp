@@ -54,7 +54,8 @@
 					</table>
 					<!-- action对应一个action标签，id对应提交时的对应关系 -->
 					<s:form id="saveForm" action="task_update" method="post" namespace="/" theme="simple">
-			<!-- 隐藏域，指明修改的是哪个任务 -->
+					<!-- 隐藏域，指明修改的是哪个任务 -->
+						<s:hidden name="eid" value="%{model.eid}"></s:hidden>
 						<s:hidden name="tid" value="%{model.tid}"></s:hidden>
 						<s:hidden name="tno" value="%{model.tno}"></s:hidden>
 						<s:hidden name="tname" value="%{model.tname}"></s:hidden>
