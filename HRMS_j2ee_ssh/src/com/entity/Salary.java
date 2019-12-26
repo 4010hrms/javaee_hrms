@@ -26,16 +26,6 @@ public class Salary {
 		this.esalary = esalary;
 		this.eno = eno;
 	}
-	public Salary(Integer eid, String ename, String esex, int eage, double esalary) {
-		super();
-		this.eid = eid;
-		this.ename = ename;
-		this.esex = esex;
-		this.eage = eage;
-		this.esalary = esalary;
-	}
-
-	
 	@Override
 	public String toString() {
 		return "Salary [eid=" + eid + ", ename=" + ename + ", esex=" + esex + ", eage=" + eage + ", esalary=" + esalary

@@ -63,6 +63,7 @@
 						<s:hidden name="ename" value="%{model.ename}"></s:hidden>
 						<s:hidden name="esex" value="%{model.esex}"></s:hidden>
 						<s:hidden name="eage" value="%{model.eage}"></s:hidden>
+						<s:hidden name="eno" value="%{model.eno}"></s:hidden>
 						<table style="font-size: :16px">
 							<tr>
 								<td align="right">员工薪资：</td>

@@ -221,6 +221,7 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 		Employee person =  (Employee) ActionContext.getContext().getSession().get("existEmployee");
 		ActionContext.getContext().getSession().put("theperson", person);
 		salary =salaryService.findById(person.getEid());
+		System.out.print("员工薪资："+salary.getEsalary());
 		ActionContext.getContext().getSession().put("salary", salary);
 		return "personinfo";
 	}
